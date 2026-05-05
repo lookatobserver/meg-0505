@@ -66,20 +66,20 @@ export default function Sian2() {
         }}>
           {/* Logo + version switcher */}
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <div style={{ display: "flex", gap: 8, marginBottom: 3 }}>
+            <div style={{ display: "flex", gap: 10, marginBottom: 3 }}>
               <Link href="/" style={{
-                fontSize: 11,
+                fontSize: 18,
                 fontWeight: 400,
                 color: "#aaa",
                 letterSpacing: "0.05em",
                 textDecoration: "none",
               }}>1</Link>
               <span style={{
-                fontSize: 11,
+                fontSize: 18,
                 fontWeight: 600,
                 color: "#1a1a1a",
                 letterSpacing: "0.05em",
-                borderBottom: "1.5px solid #1a1a1a",
+                borderBottom: "2px solid #1a1a1a",
                 paddingBottom: 1,
                 cursor: "default",
               }}>2</span>

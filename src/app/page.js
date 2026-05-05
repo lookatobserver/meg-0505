@@ -288,19 +288,19 @@ export default function Home() {
         >
           {/* Logo + version switcher */}
           <div style={{ display: "flex", flexDirection: "column", minWidth: 140 }}>
-            <div style={{ display: "flex", gap: 8, marginBottom: 4 }}>
+            <div style={{ display: "flex", gap: 10, marginBottom: 4 }}>
               <span style={{
-                fontSize: 11,
+                fontSize: 18,
                 fontFamily: "var(--font-sans)",
                 fontWeight: 600,
                 color: "#1a1a1a",
                 letterSpacing: "0.05em",
-                borderBottom: "1.5px solid #1a1a1a",
+                borderBottom: "2px solid #1a1a1a",
                 paddingBottom: 1,
                 cursor: "default",
               }}>1</span>
               <Link href="/sian2" style={{
-                fontSize: 11,
+                fontSize: 18,
                 fontFamily: "var(--font-sans)",
                 fontWeight: 400,
                 color: "#aaa",
