@@ -320,7 +320,7 @@ export default function Home() {
                   className="gnb-link"
                   style={{
                     fontFamily: "var(--font-sans)",
-                    fontSize: 12,
+                    fontSize: 20,
                     letterSpacing: "0.1em",
                     color: "#1a1a1a",
                     textDecoration: "none",
