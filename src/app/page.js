@@ -299,7 +299,7 @@ export default function Home() {
               minWidth: 140,
             }}
           >
-            M<span className="meg-e-wrap"><span className="meg-e-glow" /><span className="meg-e-letter">E</span></span>G
+            <span className="meg-letter">M</span><span className="meg-letter">E</span><span className="meg-letter">G</span>
           </Link>
 
           {/* GNB links */}

@@ -36,38 +36,20 @@ body {
   /* intentionally no dark mode — brand uses light cream palette */
 }
 
-/* ── Logo E orb animation ── */
-@keyframes meg-orb-float {
-  0%   { transform: translate(-50%, -50%) scale(1);    opacity: 0.45; }
-  25%  { transform: translate(-42%, -58%) scale(1.08); opacity: 0.5;  }
-  50%  { transform: translate(-50%, -44%) scale(1.04); opacity: 0.42; }
-  75%  { transform: translate(-58%, -54%) scale(0.96); opacity: 0.48; }
-  100% { transform: translate(-50%, -50%) scale(1);    opacity: 0.45; }
+/* ── Logo wave animation ── */
+@keyframes meg-wave {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
 }
 
-.meg-e-wrap {
-  position: relative;
+.meg-letter {
   display: inline-block;
+  animation: meg-wave 2.2s ease-in-out infinite;
 }
 
-.meg-e-glow {
-  position: absolute;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(74, 222, 128, 0.45) 0%, rgba(74, 222, 128, 0.15) 50%, rgba(74, 222, 128, 0) 75%);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  pointer-events: none;
-  animation: meg-orb-float 4s ease-in-out infinite;
-}
-
-.meg-e-letter {
-  position: relative;
-  z-index: 3;
-}
+.meg-letter:nth-child(1) { animation-delay: 0s; }
+.meg-letter:nth-child(2) { animation-delay: 0.18s; }
+.meg-letter:nth-child(3) { animation-delay: 0.36s; }
 
 /* ── Navigation hover effects ── */
 .gnb-link {
