@@ -35,3 +35,36 @@ body {
 @media (prefers-color-scheme: dark) {
   /* intentionally no dark mode — brand uses light cream palette */
 }
+
+/* ── Navigation hover effects ── */
+.gnb-link {
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.gnb-link::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #1a1a1a;
+  transition: width 0.25s ease;
+}
+
+.gnb-link:hover {
+  color: #1b4332 !important;
+}
+
+.gnb-link:hover::after {
+  width: 100%;
+}
+
+.util-link {
+  transition: color 0.2s ease;
+}
+
+.util-link:hover {
+  color: #1b4332 !important;
+}

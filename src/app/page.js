@@ -255,6 +255,7 @@ export default function Home() {
             <Link
               key={item.href}
               href={item.href}
+              className="util-link"
               style={{ color: "#666", textDecoration: "none", whiteSpace: "nowrap" }}
             >
               {item.label}
@@ -316,6 +317,7 @@ export default function Home() {
               <li key={item.href}>
                 <Link
                   href={item.href}
+                  className="gnb-link"
                   style={{
                     fontFamily: "var(--font-sans)",
                     fontSize: 12,
@@ -334,6 +336,7 @@ export default function Home() {
           {/* Brand story — right aligned, distinct */}
           <Link
             href="/brand"
+            className="gnb-link"
             style={{
               fontFamily: "var(--font-sans)",
               fontSize: 12,
