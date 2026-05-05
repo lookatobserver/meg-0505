@@ -210,12 +210,13 @@ export default function Home() {
   return (
     <div
       style={{ backgroundColor: "#f4f0e6", minHeight: "100vh" }}
-      onClick={(e) => {
+      onClickCapture={(e) => {
         const anchor = e.target.closest("a");
         if (anchor) {
           const href = anchor.getAttribute("href");
           if (href !== "/" && href !== "/sian2") {
             e.preventDefault();
+            e.stopPropagation();
             alert("준비중입니다.");
           }
         }
