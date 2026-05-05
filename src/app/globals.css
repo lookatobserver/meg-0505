@@ -52,21 +52,21 @@ body {
 
 .meg-e-glow {
   position: absolute;
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(167, 243, 208, 0.65) 0%, rgba(167, 243, 208, 0) 70%);
+  background: radial-gradient(circle, rgba(74, 222, 128, 0.45) 0%, rgba(74, 222, 128, 0.15) 50%, rgba(74, 222, 128, 0) 75%);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 0;
+  z-index: 2;
   pointer-events: none;
   animation: meg-orb-float 4s ease-in-out infinite;
 }
 
 .meg-e-letter {
   position: relative;
-  z-index: 1;
+  z-index: 3;
 }
 
 /* ── Navigation hover effects ── */
