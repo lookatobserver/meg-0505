@@ -17,7 +17,7 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "AETHER — 프리미엄 보태니컬 케어",
+  title: "MEG — 프리미엄 보태니컬 케어",
   description:
     "냉압착 식물성 원료와 미네랄 추출물로 만든 프리미엄 향 케어 브랜드. 아이더는 웰니스와 명료함의 의식으로서 개인 향을 재창조합니다.",
 };

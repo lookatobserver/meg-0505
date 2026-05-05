@@ -18,24 +18,24 @@ const products = [
     name: "Verveine No. 9",
     desc: "시트러스, 바질, 베티버",
     price: "₩58,000",
-    bgColor: "#eceae4",
-    shapeColor: "#d8d4cc",
+    image: "/product1.png",
+    imagePadding: true,
   },
   {
     badge: "신상품",
     name: "Santal Mist",
     desc: "크리미 우드, 앰버, 모스",
     price: "₩68,000",
-    bgColor: "#e8e4dc",
-    shapeColor: "#ccc8c0",
+    image: "/product2.png",
+    imagePadding: false,
   },
   {
     badge: "베스트셀러",
     name: "Oud & Herb",
     desc: "다크 레진, 세이지, 타임",
     price: "₩76,000",
-    bgColor: "#eae6de",
-    shapeColor: "#d4d0c8",
+    image: "/product3.png",
+    imagePadding: false,
   },
 ];
 
@@ -544,14 +544,23 @@ export default function Home() {
               {/* Product image area */}
               <div
                 style={{
-                  backgroundColor: product.bgColor,
                   height: 260,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
                   position: "relative",
+                  overflow: "hidden",
+                  backgroundColor: "#eceae4",
+                  padding: product.imagePadding ? "24px" : 0,
                 }}
               >
+                <Image
+                  src={product.image}
+                  alt={product.name}
+                  fill
+                  style={{
+                    objectFit: product.imagePadding ? "contain" : "cover",
+                    objectPosition: "center",
+                    padding: product.imagePadding ? "24px" : 0,
+                  }}
+                />
                 <span
                   style={{
                     position: "absolute",
@@ -563,15 +572,11 @@ export default function Home() {
                     backgroundColor: "rgba(255,255,255,0.7)",
                     padding: "4px 8px",
                     fontFamily: "var(--font-sans)",
+                    zIndex: 1,
                   }}
                 >
                   {product.badge}
                 </span>
-                <div style={{ width: 120, height: 220, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  {i === 0 && <ProductTube color="#c4b8a0" lightColor="#d8ceb8" />}
-                  {i === 1 && <SprayBottle />}
-                  {i === 2 && <AmberBottle />}
-                </div>
               </div>
 
               {/* Product info */}
@@ -807,7 +812,7 @@ export default function Home() {
                   marginBottom: 16,
                 }}
               >
-                AETHER
+                MEG
               </div>
               <p
                 style={{
@@ -995,7 +1000,7 @@ export default function Home() {
                 fontFamily: "var(--font-sans)",
               }}
             >
-              © 2026 Aether Botanical Ltd. All Rights Reserved.
+              © 2026 MEG Botanical Ltd. All Rights Reserved.
             </p>
 
             <div style={{ display: "flex", gap: 20 }}>
