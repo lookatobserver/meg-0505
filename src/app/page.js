@@ -286,21 +286,43 @@ export default function Home() {
             padding: "14px 48px",
           }}
         >
-          {/* Logo */}
-          <Link
-            href="/"
-            style={{
-              fontFamily: "var(--font-cormorant), Georgia, serif",
-              fontSize: 56,
-              fontWeight: 600,
-              letterSpacing: "0.25em",
-              color: "#1a1a1a",
-              textDecoration: "none",
-              minWidth: 140,
-            }}
-          >
-            <span className="meg-letter">M</span><span className="meg-letter">E</span><span className="meg-letter">G</span>
-          </Link>
+          {/* Logo + version switcher */}
+          <div style={{ display: "flex", flexDirection: "column", minWidth: 140 }}>
+            <div style={{ display: "flex", gap: 8, marginBottom: 4 }}>
+              <span style={{
+                fontSize: 11,
+                fontFamily: "var(--font-sans)",
+                fontWeight: 600,
+                color: "#1a1a1a",
+                letterSpacing: "0.05em",
+                borderBottom: "1.5px solid #1a1a1a",
+                paddingBottom: 1,
+                cursor: "default",
+              }}>1</span>
+              <Link href="/sian2" style={{
+                fontSize: 11,
+                fontFamily: "var(--font-sans)",
+                fontWeight: 400,
+                color: "#aaa",
+                letterSpacing: "0.05em",
+                textDecoration: "none",
+                transition: "color 0.2s",
+              }}>2</Link>
+            </div>
+            <Link
+              href="/"
+              style={{
+                fontFamily: "var(--font-cormorant), Georgia, serif",
+                fontSize: 56,
+                fontWeight: 600,
+                letterSpacing: "0.25em",
+                color: "#1a1a1a",
+                textDecoration: "none",
+              }}
+            >
+              <span className="meg-letter">M</span><span className="meg-letter">E</span><span className="meg-letter">G</span>
+            </Link>
+          </div>
 
           {/* GNB links */}
           <ul
