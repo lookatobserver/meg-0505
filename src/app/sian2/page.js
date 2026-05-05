@@ -1,6 +1,9 @@
+"use client"; // 이 파일 전체를 클라이언트 컴포넌트로 지정합니다.
+
 import Link from "next/link";
 import Image from "next/image";
 
+// 정적 데이터들은 파일 상단에 유지합니다.
 const gnbItems = [
   { label: "전체 상품", href: "/shop" },
   { label: "베스트", href: "/best" },
@@ -93,7 +96,7 @@ export default function Sian2() {
             </Link>
           </div>
 
-          {/* GNB */}
+          {/* GNB - 이제 정상적으로 작동합니다. */}
           <nav style={{ display: "flex", gap: 36, alignItems: "center" }}>
             {gnbItems.map((item) => (
               <Link key={item.href} href={item.href} style={{
@@ -103,6 +106,7 @@ export default function Sian2() {
                 textDecoration: "none",
                 transition: "color 0.2s",
               }}
+              // 클라이언트 컴포넌트가 되었으므로 이벤트 핸들러를 사용할 수 있습니다.
               onMouseEnter={e => e.target.style.color = "#1a1a1a"}
               onMouseLeave={e => e.target.style.color = "#555"}
               >
@@ -123,7 +127,7 @@ export default function Sian2() {
               textDecoration: "none",
               fontWeight: 500,
             }}>
-              장바구니 (0)
+              장바구니 (0) {/* 나중에 상태 관리를 통해 숫자를 변경할 수 있습니다. */}
             </Link>
           </div>
         </div>
@@ -269,7 +273,9 @@ export default function Sian2() {
                   letterSpacing: "0.14em",
                   cursor: "pointer",
                   transition: "all 0.2s",
-                }}>
+                }}
+                // 나중에 여기에 클릭 이벤트 핸들러(onClick)를 추가할 수 있습니다.
+                >
                   장바구니 담기
                 </button>
               </div>
@@ -361,7 +367,7 @@ export default function Sian2() {
           lineHeight: 1.2,
         }}>
           자연에서 태어나,<br />과학으로 완성된 향.
-        </h2>
+        </h2 >
         <p style={{
           fontSize: 14,
           lineHeight: 1.9,
@@ -436,11 +442,15 @@ export default function Sian2() {
                 <input type="email" placeholder="이메일 주소" style={{
                   flex: 1, padding: "10px 14px", border: "1px solid #e0e0e0",
                   backgroundColor: "#f8f8f6", fontSize: 13, outline: "none",
-                }} />
+                }}
+                // 나중에 여기에 상태 관리(useState)와 입력 이벤트 핸들러(onChange)를 추가할 수 있습니다.
+                />
                 <button style={{
                   padding: "10px 16px", backgroundColor: "#1b4332", color: "white",
                   border: "none", fontSize: 11, letterSpacing: "0.1em", cursor: "pointer",
-                }}>구독</button>
+                }}
+                // 나중에 여기에 클릭 이벤트 핸들러(onClick)를 추가할 수 있습니다.
+                >구독</button>
               </div>
             </div>
           </div>
