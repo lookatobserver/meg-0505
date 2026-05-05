@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 
@@ -206,7 +208,19 @@ function SocialIcon({ type }) {
 
 export default function Home() {
   return (
-    <div style={{ backgroundColor: "#f4f0e6", minHeight: "100vh" }}>
+    <div
+      style={{ backgroundColor: "#f4f0e6", minHeight: "100vh" }}
+      onClick={(e) => {
+        const anchor = e.target.closest("a");
+        if (anchor) {
+          const href = anchor.getAttribute("href");
+          if (href !== "/" && href !== "/sian2") {
+            e.preventDefault();
+            alert("준비중입니다.");
+          }
+        }
+      }}
+    >
 
       {/* ── Announcement bar ── */}
       <div

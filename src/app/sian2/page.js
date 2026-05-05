@@ -45,7 +45,19 @@ const features = [
 
 export default function Sian2() {
   return (
-    <div style={{ backgroundColor: "#f8f8f6", minHeight: "100vh", fontFamily: "var(--font-sans)" }}>
+    <div
+      style={{ backgroundColor: "#f8f8f6", minHeight: "100vh", fontFamily: "var(--font-sans)" }}
+      onClick={(e) => {
+        const anchor = e.target.closest("a");
+        if (anchor) {
+          const href = anchor.getAttribute("href");
+          if (href !== "/" && href !== "/sian2") {
+            e.preventDefault();
+            alert("준비중입니다.");
+          }
+        }
+      }}
+    >
 
       {/* ── Header ── */}
       <header style={{
