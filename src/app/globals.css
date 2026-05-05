@@ -36,55 +36,37 @@ body {
   /* intentionally no dark mode — brand uses light cream palette */
 }
 
-/* ── Logo text shimmer animation ── */
-@keyframes meg-shimmer {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+/* ── Logo E orb animation ── */
+@keyframes meg-orb-float {
+  0%   { transform: translate(-50%, -50%) scale(1);    opacity: 0.45; }
+  25%  { transform: translate(-42%, -58%) scale(1.08); opacity: 0.5;  }
+  50%  { transform: translate(-50%, -44%) scale(1.04); opacity: 0.42; }
+  75%  { transform: translate(-58%, -54%) scale(0.96); opacity: 0.48; }
+  100% { transform: translate(-50%, -50%) scale(1);    opacity: 0.45; }
 }
 
-.meg-logo {
-  background: linear-gradient(
-    90deg,
-    #1a1a1a 0%,
-    #1a1a1a 30%,
-    #4ade80 50%,
-    #1a1a1a 70%,
-    #1a1a1a 100%
-  );
-  background-size: 300% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  animation: meg-shimmer 3s ease-in-out infinite;
-}
-
-/* ── Logo accent animation ── */
-@keyframes meg-pulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 1;
-    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.6);
-  }
-  50% {
-    transform: scale(1.2);
-    opacity: 0.85;
-    box-shadow: 0 0 0 6px rgba(74, 222, 128, 0);
-  }
-}
-
-.meg-dot {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: #4ade80;
-  margin-left: 8px;
-  vertical-align: middle;
+.meg-e-wrap {
   position: relative;
-  top: -4px;
-  animation: meg-pulse 2s ease-in-out infinite;
+  display: inline-block;
+}
+
+.meg-e-glow {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(167, 243, 208, 0.65) 0%, rgba(167, 243, 208, 0) 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  pointer-events: none;
+  animation: meg-orb-float 4s ease-in-out infinite;
+}
+
+.meg-e-letter {
+  position: relative;
+  z-index: 1;
 }
 
 /* ── Navigation hover effects ── */

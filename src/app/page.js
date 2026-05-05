@@ -289,17 +289,17 @@ export default function Home() {
           {/* Logo */}
           <Link
             href="/"
-            className="meg-logo"
             style={{
               fontFamily: "var(--font-cormorant), Georgia, serif",
               fontSize: 56,
               fontWeight: 600,
               letterSpacing: "0.25em",
+              color: "#1a1a1a",
               textDecoration: "none",
               minWidth: 140,
             }}
           >
-            MEG<span className="meg-dot" />
+            M<span className="meg-e-wrap"><span className="meg-e-glow" /><span className="meg-e-letter">E</span></span>G
           </Link>
 
           {/* GNB links */}
