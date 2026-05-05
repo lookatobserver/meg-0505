@@ -36,6 +36,33 @@ body {
   /* intentionally no dark mode — brand uses light cream palette */
 }
 
+/* ── Logo accent animation ── */
+@keyframes meg-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.6);
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.85;
+    box-shadow: 0 0 0 6px rgba(74, 222, 128, 0);
+  }
+}
+
+.meg-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #4ade80;
+  margin-left: 8px;
+  vertical-align: middle;
+  position: relative;
+  top: -4px;
+  animation: meg-pulse 2s ease-in-out infinite;
+}
+
 /* ── Navigation hover effects ── */
 .gnb-link {
   position: relative;

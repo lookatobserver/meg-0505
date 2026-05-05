@@ -299,7 +299,7 @@ export default function Home() {
               minWidth: 140,
             }}
           >
-            MEG
+            MEG<span className="meg-dot" />
           </Link>
 
           {/* GNB links */}
