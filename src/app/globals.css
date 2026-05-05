@@ -36,6 +36,30 @@ body {
   /* intentionally no dark mode — brand uses light cream palette */
 }
 
+/* ── Logo text shimmer animation ── */
+@keyframes meg-shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.meg-logo {
+  background: linear-gradient(
+    90deg,
+    #1a1a1a 0%,
+    #1a1a1a 30%,
+    #4ade80 50%,
+    #1a1a1a 70%,
+    #1a1a1a 100%
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: meg-shimmer 3s ease-in-out infinite;
+}
+
 /* ── Logo accent animation ── */
 @keyframes meg-pulse {
   0%, 100% {
