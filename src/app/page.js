@@ -27,7 +27,7 @@ const products = [
     desc: "크리미 우드, 앰버, 모스",
     price: "₩68,000",
     image: "/product2.png",
-    imagePadding: false,
+    imagePadding: true,
   },
   {
     badge: "베스트셀러",
@@ -35,7 +35,7 @@ const products = [
     desc: "다크 레진, 세이지, 타임",
     price: "₩76,000",
     image: "/product3.png",
-    imagePadding: false,
+    imagePadding: true,
   },
 ];
 
@@ -517,7 +517,7 @@ export default function Home() {
               letterSpacing: "0.02em",
             }}
           >
-            베스트 에센셜
+            베스트 초이스
           </h2>
         </div>
 
