@@ -242,10 +242,10 @@ export default function BrandPage() {
               </p>
               <h1 style={{
                 fontFamily: "var(--font-cormorant), Georgia, serif",
-                fontSize: "clamp(48px, 6vw, 88px)",
+                fontSize: "clamp(36px, 4vw, 62px)",
                 fontWeight: 400,
                 color: "white",
-                lineHeight: 1.08,
+                lineHeight: 1.15,
                 letterSpacing: "-0.01em",
                 marginBottom: 0,
               }}>
