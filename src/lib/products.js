@@ -27,7 +27,7 @@ export const products = [
   },
   {
     slug: "santal-mist",
-    badge: "신상품",
+    badge: "베스트",
     name: "맑음수",
     shortDesc: "100% 자연 유래 EM | 미국 FDA 등록",
     price: "₩9,900",
