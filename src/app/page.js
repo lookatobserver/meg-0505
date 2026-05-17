@@ -165,26 +165,13 @@ export default function Home() {
           lineHeight: 1.8,
           color: "#888",
           maxWidth: 480,
-          margin: "0 auto 40px",
+          margin: "0 auto",
           fontWeight: 300,
         }}>
           냉압착 식물성 원료와 미네랄 추출물로 탄생한 MEG.
           개인 향을 웰니스와 명료함의 의식으로 재창조합니다.
         </p>
 
-        <Link href="/shop" style={{
-          display: "inline-block",
-          padding: "13px 36px",
-          backgroundColor: "#1b4332",
-          color: "white",
-          fontSize: 11,
-          letterSpacing: "0.18em",
-          textDecoration: "none",
-          borderRadius: 2,
-          fontWeight: 500,
-        }}>
-          컬렉션 보러가기
-        </Link>
       </section>
 
       {/* ── Products ── */}
