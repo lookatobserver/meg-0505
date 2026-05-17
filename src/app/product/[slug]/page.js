@@ -239,6 +239,103 @@ export default async function ProductPage({ params }) {
           </div>
 
         </div>
+
+        {/* ── Detail Image (제품별 추가 이미지) ── */}
+        {product.detailImage && (
+          <div style={{ marginTop: 80 }}>
+            <div style={{
+              borderRadius: 20,
+              overflow: "hidden",
+              boxShadow: "0 16px 48px rgba(0,0,0,0.08)",
+              maxWidth: 600,
+              margin: "0 auto",
+            }}>
+              <Image
+                src={product.detailImage}
+                alt={`${product.name} 상세 정보`}
+                width={600}
+                height={1000}
+                style={{ width: "100%", height: "auto", display: "block" }}
+              />
+            </div>
+          </div>
+        )}
+
+        {/* ── Bacteria Section ── */}
+        {product.bacteria && (
+          <div style={{ marginTop: 100 }}>
+            <div style={{ textAlign: "center", marginBottom: 56 }}>
+              <p style={{ fontSize: 10, letterSpacing: "0.24em", color: "#bbb", marginBottom: 16 }}>
+                ACTIVE INGREDIENTS
+              </p>
+              <h2 style={{
+                fontFamily: "var(--font-cormorant), Georgia, serif",
+                fontSize: "clamp(28px, 3vw, 42px)",
+                fontWeight: 400,
+                color: "#1a1a1a",
+                lineHeight: 1.2,
+                marginBottom: 16,
+              }}>
+                유익균을 배합으로 완성한<br />살아있는 탈취 솔루션
+              </h2>
+              <p style={{ fontSize: 14, color: "#999", fontWeight: 300, lineHeight: 1.8 }}>
+                자연이 만든 유익균이 냄새 유발 균을 직접 분해하고 환경까지 케어합니다.
+              </p>
+            </div>
+
+            <div style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(2, 1fr)",
+              gap: 20,
+            }}>
+              {product.bacteria.map((b) => (
+                <div key={b.name} style={{
+                  backgroundColor: "#ffffff",
+                  border: "1px solid #ebebeb",
+                  borderRadius: 12,
+                  padding: "32px 28px",
+                  display: "flex",
+                  gap: 20,
+                  alignItems: "flex-start",
+                }}>
+                  <div style={{
+                    width: 44,
+                    height: 44,
+                    borderRadius: "50%",
+                    backgroundColor: b.color + "22",
+                    border: `1.5px solid ${b.color}66`,
+                    flexShrink: 0,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}>
+                    <div style={{
+                      width: 16,
+                      height: 16,
+                      borderRadius: "50%",
+                      backgroundColor: b.color,
+                      opacity: 0.85,
+                    }} />
+                  </div>
+                  <div>
+                    <div style={{ display: "flex", alignItems: "baseline", gap: 8, marginBottom: 6 }}>
+                      <span style={{ fontSize: 15, fontWeight: 600, color: "#1a1a1a", letterSpacing: "0.02em" }}>
+                        {b.name}
+                      </span>
+                      <span style={{ fontSize: 11, color: "#bbb", letterSpacing: "0.04em" }}>
+                        {b.latin}
+                      </span>
+                    </div>
+                    <p style={{ fontSize: 13, color: "#888", lineHeight: 1.75, fontWeight: 300 }}>
+                      {b.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
       </main>
 
       {/* ── Footer ── */}

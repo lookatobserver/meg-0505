@@ -30,20 +30,47 @@ export const products = [
     price: "₩9,900",
     image: "/water01.png",
     longDesc:
-      "100% 자연 유래 EM(유용미생물) 기술로 만든 맑음수. 미국 FDA 등록 성분으로 안전하게 검증되었으며, 자연의 힘으로 냄새와 유해균을 근본적으로 제거합니다.",
+      "유익균을 배합으로 완성한 살아있는 탈취 솔루션. 자연이 만든 유익균이 냄새 유발 균을 직접 분해하고 환경까지 케어합니다. 화학 성분 없이 100% 자연 유래 EM 성분만으로 만들어진 미국 FDA 등록 제품입니다.",
     specs: [
       { label: "주요 성분", value: "100% 자연 유래 EM" },
       { label: "인증", value: "미국 FDA 등록" },
-      { label: "타입", value: "천연 미생물 제제" },
+      { label: "타입", value: "천연 미생물 제제 (휘산형)" },
       { label: "알코올", value: "프리" },
       { label: "파라벤", value: "프리" },
       { label: "합성 향료", value: "무첨가" },
     ],
     features: [
-      { title: "100% 자연 유래", desc: "화학 성분 없이 자연 유래 EM 성분만을 사용합니다." },
-      { title: "미국 FDA 등록", desc: "미국 FDA에 등록된 성분으로 안전성이 검증되었습니다." },
-      { title: "근본적 제거", desc: "유용미생물이 냄새와 유해균의 원인을 근본적으로 제거합니다." },
+      { title: "살아있는 유익균 배합", desc: "4종의 유익균이 살아있는 상태로 배합되어 탁월한 탈취 효과를 발휘합니다." },
+      { title: "미국 FDA 등록 성분", desc: "미국 FDA에 등록된 안전한 성분만을 사용합니다." },
+      { title: "냄새 근본 분해", desc: "유익균이 냄새 유발 균과 유해 물질을 직접 분해하여 재발을 방지합니다." },
     ],
+    bacteria: [
+      {
+        name: "유산균",
+        latin: "Lactic Acid Bacteria",
+        desc: "악취 유발 세균을 억제하고, 안정된 미생물 환경을 조성합니다.",
+        color: "#4fc3f7",
+      },
+      {
+        name: "락토바실러스",
+        latin: "Lactobacillus",
+        desc: "유기산을 통해 세균·곰팡이를 억제하고 부패를 방지합니다.",
+        color: "#f48fb1",
+      },
+      {
+        name: "비피더스균",
+        latin: "Bifidobacterium",
+        desc: "유해균을 억제하고 탈취 환경의 미세균 균형을 유지합니다.",
+        color: "#ffcc80",
+      },
+      {
+        name: "바실러스균",
+        latin: "Bacillus",
+        desc: "냄새 유발 물질(단백질, 유기물 등) 분해에 탁월한 효과를 발휘합니다.",
+        color: "#a5d6a7",
+      },
+    ],
+    detailImage: "/water01.jpg",
   },
   {
     slug: "oud-herb",
