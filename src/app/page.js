@@ -50,7 +50,7 @@ export default function Home() {
         const anchor = e.target.closest("a");
         if (anchor) {
           const href = anchor.getAttribute("href");
-          if (href !== "/" && href !== "/sian1") {
+          if (href !== "/") {
             e.preventDefault();
             e.stopPropagation();
             alert("준비중입니다.");
@@ -76,37 +76,17 @@ export default function Home() {
           maxWidth: 1280,
           margin: "0 auto",
         }}>
-          {/* Logo + version switcher */}
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <div style={{ display: "flex", gap: 10, marginBottom: 3 }}>
-              <Link href="/sian1" style={{
-                fontSize: 18,
-                fontWeight: 400,
-                color: "#aaa",
-                letterSpacing: "0.05em",
-                textDecoration: "none",
-              }}>1</Link>
-              <span style={{
-                fontSize: 18,
-                fontWeight: 600,
-                color: "#1a1a1a",
-                letterSpacing: "0.05em",
-                borderBottom: "2px solid #1a1a1a",
-                paddingBottom: 1,
-                cursor: "default",
-              }}>2</span>
-            </div>
-            <Link href="/" style={{
-              fontFamily: "var(--font-cormorant), Georgia, serif",
-              fontSize: 28,
-              fontWeight: 600,
-              letterSpacing: "0.3em",
-              color: "#1a1a1a",
-              textDecoration: "none",
-            }}>
-              MEG
-            </Link>
-          </div>
+          {/* Logo */}
+          <Link href="/" style={{
+            fontFamily: "var(--font-cormorant), Georgia, serif",
+            fontSize: 28,
+            fontWeight: 600,
+            letterSpacing: "0.3em",
+            color: "#1a1a1a",
+            textDecoration: "none",
+          }}>
+            MEG
+          </Link>
 
           {/* GNB */}
           <nav style={{ display: "flex", gap: 36, alignItems: "center" }}>
