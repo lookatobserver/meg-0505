@@ -250,7 +250,7 @@ export default function BrandPage() {
                 marginBottom: 0,
               }}>
                 자연의 힘으로<br />
-                <em style={{ color: "#4ade80", fontStyle: "italic" }}>청정함을 증명하다.</em>
+                <em style={{ color: "#4ade80", fontStyle: "italic", whiteSpace: "nowrap" }}>청정함을 증명하다.</em>
               </h1>
             </div>
             <div style={{ paddingBottom: 8 }}>
