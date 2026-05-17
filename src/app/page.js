@@ -16,9 +16,9 @@ const gnbItems = [
 const products = [
   {
     badge: "최고 평점",
-    name: "Verveine No. 9",
-    desc: "시트러스, 바질, 베티버",
-    price: "₩58,000",
+    name: "친환경 무소음 탈취기",
+    desc: "미생물분해로 99% 원인 제거",
+    price: "₩139,000",
     image: "/black01.png",
   },
   {
