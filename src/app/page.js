@@ -16,9 +16,9 @@ const gnbItems = [
 ];
 
 const features = [
-  { title: "식물성 추출물", desc: "12종 냉압착 원료로 피부 자극 없이 향을 전달합니다." },
-  { title: "휘발성 유기화합물 0%", desc: "엄격한 분자 분석으로 유해 성분을 완전히 배제합니다." },
-  { title: "24시간 지속 포뮬러", desc: "생체흡수 기술로 체온에 반응해 향이 오래 지속됩니다." },
+  { title: "공간을 해치지 않는 미니멀 실루엣", desc: "심플하고 깔끔한 형태로 거실, 침실, 서재 어디에나 자연스럽게 어우러집니다." },
+  { title: "일상 속 조용한 존재감", desc: "소음 없이 작동하며, 인테리어의 일부처럼 공간에 스며듭니다." },
+  { title: "공간의 흐름을 방해하지 않는 디자인", desc: "과하지 않은 크기와 중성적인 컬러로 어떤 스타일의 공간과도 어울립니다." },
 ];
 
 export default function Home() {
@@ -272,67 +272,98 @@ export default function Home() {
       {/* ── What we capture ── */}
       <section style={{
         backgroundColor: "#111",
-        padding: "100px 56px",
+        padding: "0",
+        overflow: "hidden",
       }}>
         <div style={{
           display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: 80,
-          maxWidth: 1080,
+          gridTemplateColumns: "5fr 7fr",
+          maxWidth: 1280,
           margin: "0 auto",
-          alignItems: "center",
+          minHeight: 700,
         }}>
-          {/* Circular image */}
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            <div style={{
-              width: 340,
-              height: 340,
-              borderRadius: "50%",
-              overflow: "hidden",
-              position: "relative",
-              boxShadow: "0 0 60px rgba(45,106,79,0.3)",
-            }}>
-              <Image src="/product1.png" alt="성분 분석" fill style={{ objectFit: "cover" }} />
-            </div>
+          {/* Image */}
+          <div style={{ position: "relative", minHeight: 700 }}>
+            <Image
+              src="/inter.jpg"
+              alt="공간에 스며드는 MEG 디자인"
+              fill
+              style={{ objectFit: "cover", objectPosition: "center top" }}
+            />
           </div>
 
           {/* Text */}
-          <div>
-            <p style={{ fontSize: 10, letterSpacing: "0.22em", color: "rgba(255,255,255,0.35)", marginBottom: 16 }}>
-              순수함의 과학
+          <div style={{
+            padding: "80px 72px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+          }}>
+            <p style={{ fontSize: 10, letterSpacing: "0.22em", color: "rgba(255,255,255,0.35)", marginBottom: 20 }}>
+              DESIGN PHILOSOPHY
             </p>
             <h2 style={{
               fontFamily: "var(--font-cormorant), Georgia, serif",
               fontSize: "clamp(34px, 4vw, 54px)",
               fontWeight: 400,
               color: "white",
-              marginBottom: 48,
-              lineHeight: 1.15,
+              marginBottom: 20,
+              lineHeight: 1.2,
             }}>
-              무엇을 담았나.
+              공간에 스며드는<br />
+              <em style={{ color: "#b8a97a", fontStyle: "italic" }}>미니멀 디자인</em>
             </h2>
-            <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
+            <p style={{
+              fontSize: 14,
+              lineHeight: 1.85,
+              color: "rgba(255,255,255,0.5)",
+              fontWeight: 300,
+              marginBottom: 52,
+              maxWidth: 380,
+            }}>
+              심플하고 깔끔한 디자인으로 공간을 해치지 않고<br />
+              자연스럽게 어우러집니다.
+            </p>
+            <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
               {features.map((f, i) => (
                 <div key={i} style={{ display: "flex", gap: 20, alignItems: "flex-start" }}>
                   <div style={{
-                    width: 36,
-                    height: 36,
+                    width: 32,
+                    height: 32,
                     borderRadius: "50%",
-                    backgroundColor: "rgba(45,106,79,0.4)",
+                    backgroundColor: "rgba(184,169,122,0.2)",
+                    border: "1px solid rgba(184,169,122,0.35)",
                     flexShrink: 0,
                     marginTop: 2,
-                  }} />
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: 11,
+                    color: "#b8a97a",
+                    fontWeight: 500,
+                  }}>
+                    {i + 1}
+                  </div>
                   <div>
-                    <div style={{ fontSize: 13, fontWeight: 500, color: "white", marginBottom: 4, letterSpacing: "0.04em" }}>
+                    <div style={{ fontSize: 13, fontWeight: 500, color: "white", marginBottom: 5, letterSpacing: "0.04em" }}>
                       {f.title}
                     </div>
-                    <div style={{ fontSize: 13, color: "rgba(255,255,255,0.45)", lineHeight: 1.7, fontWeight: 300 }}>
+                    <div style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", lineHeight: 1.75, fontWeight: 300 }}>
                       {f.desc}
                     </div>
                   </div>
                 </div>
               ))}
             </div>
+            <p style={{
+              marginTop: 52,
+              fontSize: 11,
+              letterSpacing: "0.14em",
+              color: "rgba(255,255,255,0.2)",
+              fontStyle: "italic",
+            }}>
+              A quiet presence in everyday life
+            </p>
           </div>
         </div>
       </section>
