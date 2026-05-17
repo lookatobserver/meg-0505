@@ -159,7 +159,7 @@ export default function Home() {
           margin: "48px auto 40px",
           position: "relative",
           aspectRatio: "16 / 11",
-          borderRadius: 16,
+          borderRadius: 32,
           overflow: "hidden",
           boxShadow: "0 24px 72px rgba(0,0,0,0.10)",
         }}>
