@@ -32,7 +32,7 @@ export default function Home() {
         const anchor = e.target.closest("a");
         if (anchor) {
           const href = anchor.getAttribute("href");
-          if (href !== "/") {
+          if (href !== "/" && href !== "/lab") {
             e.preventDefault();
             e.stopPropagation();
             alert("준비중입니다.");
