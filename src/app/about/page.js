@@ -181,14 +181,14 @@ export default function AboutPage() {
               marginBottom: 20,
               overflow: "hidden",
               position: "relative",
-              aspectRatio: "3 / 4",
+              aspectRatio: "3 / 5",
               boxShadow: "0 8px 32px rgba(0,0,0,0.10)",
             }}>
               <Image
                 src="/an.png"
                 alt="안성순 발효연구원장"
                 fill
-                style={{ objectFit: "cover", objectPosition: "center top" }}
+                style={{ objectFit: "cover", objectPosition: "center center" }}
               />
             </div>
 
