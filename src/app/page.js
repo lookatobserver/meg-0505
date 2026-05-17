@@ -199,7 +199,7 @@ export default function Home() {
               display: "flex",
               flexDirection: "column",
             }}>
-              <div style={{ height: 280, position: "relative", backgroundColor: "#f4f4f2" }}>
+              <div style={{ height: 280, position: "relative", backgroundColor: product.cardBg ?? "#f4f4f2" }}>
                 <Image
                   src={product.image}
                   alt={product.name}
