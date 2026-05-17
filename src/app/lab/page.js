@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import Logo from "@/components/Logo";
 
 export default function LabPage() {
   return (
@@ -22,16 +23,7 @@ export default function LabPage() {
           maxWidth: 1280,
           margin: "0 auto",
         }}>
-          <Link href="/" style={{
-            fontFamily: "var(--font-cormorant), Georgia, serif",
-            fontSize: 28,
-            fontWeight: 600,
-            letterSpacing: "0.3em",
-            color: "#1a1a1a",
-            textDecoration: "none",
-          }}>
-            MEG
-          </Link>
+          <Logo />
           <Link href="/" style={{
             display: "flex",
             alignItems: "center",

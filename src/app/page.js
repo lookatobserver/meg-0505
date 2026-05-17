@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { products } from "@/lib/products";
+import Logo from "@/components/Logo";
 
 const gnbItems = [
   { label: "브랜드 스토리", href: "/brand", accent: true },
@@ -58,16 +59,7 @@ export default function Home() {
           margin: "0 auto",
         }}>
           {/* Logo */}
-          <Link href="/" style={{
-            fontFamily: "var(--font-cormorant), Georgia, serif",
-            fontSize: 28,
-            fontWeight: 600,
-            letterSpacing: "0.3em",
-            color: "#1a1a1a",
-            textDecoration: "none",
-          }}>
-            MEG
-          </Link>
+          <Logo />
 
           {/* GNB */}
           <nav style={{ display: "flex", gap: 36, alignItems: "center" }}>

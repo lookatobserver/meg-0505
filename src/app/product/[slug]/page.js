@@ -3,6 +3,7 @@ import Image from "next/image";
 import { getProductBySlug, products } from "@/lib/products";
 import { notFound } from "next/navigation";
 import CtaButtons from "./CtaButtons";
+import Logo from "@/components/Logo";
 
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
@@ -33,16 +34,7 @@ export default async function ProductPage({ params }) {
           maxWidth: 1280,
           margin: "0 auto",
         }}>
-          <Link href="/" style={{
-            fontFamily: "var(--font-cormorant), Georgia, serif",
-            fontSize: 28,
-            fontWeight: 600,
-            letterSpacing: "0.3em",
-            color: "#1a1a1a",
-            textDecoration: "none",
-          }}>
-            MEG
-          </Link>
+          <Logo />
 
           <Link href="/" style={{
             display: "flex",

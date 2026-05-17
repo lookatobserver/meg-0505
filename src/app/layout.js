@@ -1,4 +1,4 @@
-import { Cormorant_Garamond, Inter } from "next/font/google";
+import { Cormorant_Garamond, Inter, Barlow_Condensed } from "next/font/google";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -16,6 +16,13 @@ const inter = Inter({
   display: "swap",
 });
 
+const barlow = Barlow_Condensed({
+  variable: "--font-barlow",
+  subsets: ["latin"],
+  weight: ["700", "800"],
+  display: "swap",
+});
+
 export const metadata = {
   title: "MEG — 프리미엄 보태니컬 케어",
   description:
@@ -24,7 +31,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="ko" className={`${cormorant.variable} ${inter.variable}`}>
+    <html lang="ko" className={`${cormorant.variable} ${inter.variable} ${barlow.variable}`}>
       <body>{children}</body>
     </html>
   );

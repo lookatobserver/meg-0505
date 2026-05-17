@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import Logo from "@/components/Logo";
 
 const awards = [
   {
@@ -125,16 +126,7 @@ export default function BrandPage() {
           maxWidth: 1280,
           margin: "0 auto",
         }}>
-          <Link href="/" style={{
-            fontFamily: "var(--font-cormorant), Georgia, serif",
-            fontSize: 28,
-            fontWeight: 600,
-            letterSpacing: "0.3em",
-            color: "#1a1a1a",
-            textDecoration: "none",
-          }}>
-            MEG
-          </Link>
+          <Logo />
           <nav style={{ display: "flex", gap: 36, alignItems: "center" }}>
             {[
               { label: "성분 분석", href: "/lab" },
