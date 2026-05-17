@@ -4,18 +4,18 @@ import Logo from "@/components/Logo";
 
 export const metadata = {
   title: "ABOUT — MEG Microbial Eco Guardians",
-  description: "MEG 대표이사 인삿말 및 브랜드 소개",
+  description: "MEG 발효연구원장 안성순 인삿말 및 브랜드 소개",
 };
 
 const ceoMessage = [
-  "안녕하십니까.",
-  "MEG(Microbial Eco Guardians)를 찾아주신 여러분께 진심으로 감사드립니다.",
-  "저희는 오랫동안 한 가지 질문을 붙들고 살았습니다. '왜 탈취제는 냄새를 없애는 척만 할까?' 화학 향료로 덮고, 강한 성분으로 잠시 억누르는 방식은 근본적인 해결이 아니었습니다. 냄새의 원인, 즉 악취를 유발하는 균과 유기 분자 자체를 없애지 않는 한 문제는 반드시 되돌아옵니다.",
-  "그 물음에서 MEG가 태어났습니다.",
-  "1년이 넘는 연구 끝에 저희는 자연이 이미 완벽한 답을 가지고 있다는 사실을 확인했습니다. 유용미생물(EM) — 유산균, 락토바실러스, 비피더스균, 바실러스균 — 이 네 가지 살아있는 균이 악취의 원인 분자를 직접 분해합니다. 화학 성분 하나 없이, 자연의 힘만으로.",
-  "저희의 기술은 특허청에 정식 출원되었고, 핵심 성분은 미국 FDA에 등록되었습니다. 이것은 자랑이 아닙니다. 여러분의 공간에 들어오는 제품이라면 마땅히 갖춰야 할 최소한의 책임이라고 생각합니다.",
-  "MEG는 앞으로도 '자연이 만든 것'과 '과학이 증명한 것' 사이의 교차점에서 제품을 만들어갈 것입니다. 더 좋은 공기, 더 건강한 공간, 그리고 지구에 부담을 주지 않는 방식으로.",
-  "여러분의 일상에 MEG가 조용히, 그러나 확실하게 함께하겠습니다.",
+  "안녕하십니까, MEG 발효연구원장 안성순입니다.",
+  "MEG(Microbial Eco Guardians)를 찾아주신 여러분께 진심으로 감사의 말씀을 드립니다.",
+  "저는 오랫동안 한서대학교산학연구원에서 미생물 발효 기술을 연구해 왔습니다. 그 과정에서 줄곧 붙들었던 질문이 있었습니다. '왜 우리 주변의 탈취·살균 제품들은 독소와 인공 화학물질에 의존할까?' 강한 성분으로 냄새를 억누르고 덮는 방식은 근본적인 해결이 아닙니다. 악취를 일으키는 균과 유기 분자 자체를 제거하지 않는 한, 문제는 반드시 되돌아옵니다.",
+  "저희가 찾은 답은 자연 안에 있었습니다.",
+  "수질 정화에서 토양 복원까지, 자연은 이미 완벽한 정화 시스템을 갖추고 있습니다. 그 핵심이 바로 유용미생물(EM)입니다. 유산균, 락토바실러스, 비피더스균, 바실러스균 — 이 네 가지 살아있는 균이 악취의 원인 분자를 직접 분해하고, 유해균의 증식을 억제합니다. 독소 없이, 인공 성분 없이, 오직 자연의 힘으로.",
+  "한서대학교산학연구원과의 협력을 통해 1년 이상의 연구 끝에 이 기술을 MEG 제품에 담아냈습니다. 미국 FDA에 등록된 성분, 특허청 정식 출원 기술 — 이것은 자랑이 아닌, 여러분의 공간에 들어오는 제품이 마땅히 갖춰야 할 책임입니다.",
+  "자기 환경을 생각하는 기술, 자연에서 답을 찾는 연구. MEG는 그 신념 위에 서 있습니다.",
+  "당신의 공간이 다시 숨 쉬게 되기를 바랍니다. MEG가 만드는 일상이 여러분과 함께하겠습니다.",
   "감사합니다.",
 ];
 
@@ -128,7 +128,7 @@ export default function AboutPage() {
             fontWeight: 300,
             letterSpacing: "0.04em",
           }}>
-            Microbial Eco Guardians — 미생물이 지키는 생태계
+            자기 환경을 생각하는 기술 — 자연에서 답을 찾다
           </p>
         </div>
       </section>
@@ -153,8 +153,8 @@ export default function AboutPage() {
               marginBottom: 28,
             }}>
               <Image
-                src="/m01.jpg"
-                alt="MEG 대표이사"
+                src="/ceo.png"
+                alt="안성순 발효연구원장"
                 fill
                 style={{ objectFit: "cover", objectPosition: "center top" }}
               />
@@ -180,14 +180,14 @@ export default function AboutPage() {
                   letterSpacing: "0.04em",
                   marginBottom: 4,
                 }}>
-                  대표이사
+                  안성순
                 </div>
                 <div style={{
                   fontSize: 10,
-                  letterSpacing: "0.2em",
+                  letterSpacing: "0.16em",
                   color: "rgba(255,255,255,0.6)",
                 }}>
-                  MEG · Microbial Eco Guardians
+                  발효연구원장 · 한서대학교산학연구원
                 </div>
               </div>
             </div>
@@ -276,10 +276,10 @@ export default function AboutPage() {
                   color: "#1a1a1a",
                   marginBottom: 2,
                 }}>
-                  MEG 대표이사
+                  안성순 발효연구원장
                 </div>
                 <div style={{ fontSize: 11, color: "#bbb", letterSpacing: "0.1em" }}>
-                  Microbial Eco Guardians
+                  MEG · 한서대학교산학연구원
                 </div>
               </div>
             </div>
@@ -306,7 +306,7 @@ export default function AboutPage() {
           margin: "0 auto",
           letterSpacing: "0.01em",
         }}>
-          "냄새를 가리는 것이 아니라, 원인을 없앤다."
+          "당신의 공간을 다시 숨 쉬게, MEG가 만드는 일상."
         </p>
         <p style={{ fontSize: 10, letterSpacing: "0.2em", color: "#ccc", marginTop: 20 }}>
           MEG FOUNDING PRINCIPLE
