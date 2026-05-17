@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -43,6 +44,8 @@ const features = [
 ];
 
 export default function Home() {
+  const [btnState, setBtnState] = useState({}); // { [index]: "hover" | "active" }
+
   return (
     <div
       style={{ backgroundColor: "#f8f8f6", minHeight: "100vh", fontFamily: "var(--font-sans)" }}
@@ -212,7 +215,11 @@ export default function Home() {
           gridTemplateColumns: "repeat(3, 1fr)",
           gap: 20,
         }}>
-          {products.map((product) => (
+          {products.map((product, i) => {
+            const state = btnState[i];
+            const isActive = state === "active";
+            const isHover = state === "hover";
+            return (
             <div key={product.name} style={{
               backgroundColor: "#ffffff",
               border: "1px solid #ebebeb",
@@ -255,22 +262,30 @@ export default function Home() {
                 <p style={{ fontSize: 15, fontWeight: 500, color: "#1a1a1a", marginBottom: 18 }}>
                   {product.price}
                 </p>
-                <button style={{
-                  width: "100%",
-                  padding: "11px 0",
-                  backgroundColor: "transparent",
-                  color: "#1a1a1a",
-                  border: "1px solid #1a1a1a",
-                  fontSize: 11,
-                  letterSpacing: "0.14em",
-                  cursor: "pointer",
-                  transition: "all 0.2s",
-                }}>
-                  장바구니 담기
+                <button
+                  onMouseEnter={() => setBtnState(s => ({ ...s, [i]: "hover" }))}
+                  onMouseLeave={() => setBtnState(s => ({ ...s, [i]: null }))}
+                  onMouseDown={() => setBtnState(s => ({ ...s, [i]: "active" }))}
+                  onMouseUp={() => setBtnState(s => ({ ...s, [i]: "hover" }))}
+                  style={{
+                    width: "100%",
+                    padding: "11px 0",
+                    backgroundColor: isActive ? "#333" : isHover ? "#1a1a1a" : "transparent",
+                    color: (isHover || isActive) ? "white" : "#1a1a1a",
+                    border: "1px solid #1a1a1a",
+                    fontSize: 11,
+                    letterSpacing: "0.14em",
+                    cursor: "pointer",
+                    transition: "background-color 0.18s, color 0.18s, transform 0.1s",
+                    transform: isActive ? "scale(0.97)" : "scale(1)",
+                  }}
+                >
+                  제품 상세
                 </button>
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
