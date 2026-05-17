@@ -9,7 +9,7 @@ import Logo from "@/components/Logo";
 
 const gnbItems = [
   { label: "브랜드 스토리", href: "/brand", accent: true },
-  { label: "신상품", href: "/new" },
+  { label: "ABOUT", href: "/about" },
   { label: "성분 분석", href: "/lab" },
   { label: "이벤트", href: "/events" },
   { label: "고객 후기", href: "/reviews" },
@@ -32,7 +32,7 @@ export default function Home() {
         const anchor = e.target.closest("a");
         if (anchor) {
           const href = anchor.getAttribute("href");
-          if (href !== "/" && href !== "/lab" && href !== "/brand") {
+          if (href !== "/" && href !== "/lab" && href !== "/brand" && href !== "/about") {
             e.preventDefault();
             e.stopPropagation();
             alert("준비중입니다.");
