@@ -9,15 +9,42 @@ export const metadata = {
 };
 
 const ceoMessage = [
-  "안녕하십니까, MEG 발효연구원장 안성순입니다.",
-  "MEG(Microbial Eco Guardians)를 찾아주신 여러분께 진심으로 감사의 말씀을 드립니다.",
-  "저는 오랫동안 한서대학교산학연구원에서 미생물 발효 기술을 연구해 왔습니다. 그 과정에서 줄곧 붙들었던 질문이 있었습니다. '왜 우리 주변의 탈취·살균 제품들은 독소와 인공 화학물질에 의존할까?' 강한 성분으로 냄새를 억누르고 덮는 방식은 근본적인 해결이 아닙니다. 악취를 일으키는 균과 유기 분자 자체를 제거하지 않는 한, 문제는 반드시 되돌아옵니다.",
-  "저희가 찾은 답은 자연 안에 있었습니다.",
-  "수질 정화에서 토양 복원까지, 자연은 이미 완벽한 정화 시스템을 갖추고 있습니다. 그 핵심이 바로 유용미생물(EM)입니다. 유산균, 락토바실러스, 비피더스균, 바실러스균 — 이 네 가지 살아있는 균이 악취의 원인 분자를 직접 분해하고, 유해균의 증식을 억제합니다. 독소 없이, 인공 성분 없이, 오직 자연의 힘으로.",
-  "한서대학교산학연구원과의 협력을 통해 1년 이상의 연구 끝에 이 기술을 MEG 제품에 담아냈습니다. 미국 FDA에 등록된 성분, 특허청 정식 출원 기술 — 이것은 자랑이 아닌, 여러분의 공간에 들어오는 제품이 마땅히 갖춰야 할 책임입니다.",
-  "자기 환경을 생각하는 기술, 자연에서 답을 찾는 연구. MEG는 그 신념 위에 서 있습니다.",
-  "당신의 공간이 다시 숨 쉬게 되기를 바랍니다. MEG가 만드는 일상이 여러분과 함께하겠습니다.",
-  "감사합니다.",
+  {
+    type: "greeting",
+    text: "안녕하십니까, 안성순 발효연구원장입니다.",
+  },
+  {
+    type: "body",
+    text: "MEG(Microbial Eco Guardians)를 찾아주신 여러분께 진심으로 감사드립니다. 저는 한서대학교산학연구원에서 미생물 발효 기술을 연구해 오며, 오랫동안 한 가지 질문을 붙들고 있었습니다.",
+  },
+  {
+    type: "quote",
+    text: "\"왜 탈취제는 냄새를 잠시 억누를 뿐, 원인을 없애지 못할까?\"",
+  },
+  {
+    type: "body",
+    text: "강한 화학 성분으로 냄새를 덮는 방식은 근본적인 해결이 아닙니다. 악취를 일으키는 균과 유기 분자 자체를 제거하지 않는 한, 문제는 반드시 되돌아옵니다.",
+  },
+  {
+    type: "heading",
+    text: "자연에서 찾은 답",
+  },
+  {
+    type: "body",
+    text: "수질 정화에서 토양 복원까지, 자연은 이미 완벽한 정화 시스템을 갖추고 있습니다. 그 핵심이 바로 유용미생물(EM)입니다. 유산균·락토바실러스·비피더스균·바실러스균, 이 네 가지 살아있는 균이 악취의 원인 분자를 직접 분해하고 유해균의 증식을 억제합니다. 독소 없이, 인공 성분 없이, 오직 자연의 힘만으로.",
+  },
+  {
+    type: "body",
+    text: "1년 이상의 연구 끝에 이 기술을 MEG 제품에 담아냈습니다. 미국 FDA에 등록된 성분과 특허청 정식 출원 기술 — 이것은 자랑이 아닌, 여러분의 공간에 들어오는 제품이 마땅히 갖춰야 할 최소한의 책임입니다.",
+  },
+  {
+    type: "closing",
+    text: "자기 환경을 생각하는 기술, 자연에서 답을 찾는 연구. MEG는 그 신념 위에 서 있습니다.\n당신의 공간이 다시 숨 쉬기를 바랍니다.",
+  },
+  {
+    type: "sign",
+    text: "감사합니다.",
+  },
 ];
 
 const milestones = [
@@ -205,24 +232,74 @@ export default function AboutPage() {
               GREETING
             </p>
 
-            <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
+            <div style={{ display: "flex", flexDirection: "column" }}>
               {ceoMessage.map((para, i) => {
-                const isHighlight = i === 0 || i === 3 || i === 8;
-                const isLead = i === 0;
+                if (para.type === "greeting") return (
+                  <p key={i} style={{
+                    fontFamily: "var(--font-cormorant), Georgia, serif",
+                    fontSize: 26,
+                    fontWeight: 400,
+                    color: "#1a1a1a",
+                    lineHeight: 1.4,
+                    letterSpacing: "0.02em",
+                    marginBottom: 28,
+                  }}>{para.text}</p>
+                );
+                if (para.type === "quote") return (
+                  <p key={i} style={{
+                    fontFamily: "var(--font-cormorant), Georgia, serif",
+                    fontSize: 19,
+                    fontWeight: 400,
+                    fontStyle: "italic",
+                    color: "#2d6a4f",
+                    lineHeight: 1.6,
+                    borderLeft: "3px solid #2d6a4f",
+                    paddingLeft: 20,
+                    marginTop: 4,
+                    marginBottom: 24,
+                  }}>{para.text}</p>
+                );
+                if (para.type === "heading") return (
+                  <p key={i} style={{
+                    fontSize: 11,
+                    fontWeight: 600,
+                    letterSpacing: "0.18em",
+                    color: "#1a1a1a",
+                    marginTop: 12,
+                    marginBottom: 16,
+                    textTransform: "uppercase",
+                  }}>{para.text}</p>
+                );
+                if (para.type === "closing") return (
+                  <p key={i} style={{
+                    fontSize: 15,
+                    fontWeight: 300,
+                    lineHeight: 2,
+                    color: "#444",
+                    marginTop: 12,
+                    marginBottom: 8,
+                    whiteSpace: "pre-line",
+                  }}>{para.text}</p>
+                );
+                if (para.type === "sign") return (
+                  <p key={i} style={{
+                    fontSize: 15,
+                    fontWeight: 500,
+                    color: "#1a1a1a",
+                    marginTop: 8,
+                    marginBottom: 0,
+                  }}>{para.text}</p>
+                );
+                // body (default)
                 return (
                   <p key={i} style={{
-                    fontFamily: isLead
-                      ? "var(--font-cormorant), Georgia, serif"
-                      : "inherit",
-                    fontSize: isLead ? 28 : 15,
-                    fontWeight: isLead ? 400 : 300,
-                    lineHeight: isLead ? 1.4 : 1.95,
-                    color: isLead ? "#1a1a1a" : "#555",
-                    marginBottom: isLead ? 36 : (i === ceoMessage.length - 1 ? 0 : 22),
-                    letterSpacing: isLead ? "0.02em" : "0.01em",
-                  }}>
-                    {para}
-                  </p>
+                    fontSize: 15,
+                    fontWeight: 300,
+                    lineHeight: 1.95,
+                    color: "#555",
+                    marginBottom: 20,
+                    letterSpacing: "0.01em",
+                  }}>{para.text}</p>
                 );
               })}
             </div>
