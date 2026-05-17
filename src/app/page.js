@@ -3,6 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { products } from "@/lib/products";
 
 const gnbItems = [
   { label: "전체 상품", href: "/shop" },
@@ -13,30 +15,6 @@ const gnbItems = [
   { label: "고객 후기", href: "/reviews" },
 ];
 
-const products = [
-  {
-    badge: "최고 평점",
-    name: "친환경 무소음 탈취기",
-    desc: "미생물분해로 99% 원인 제거",
-    price: "₩139,000",
-    image: "/black01.png",
-  },
-  {
-    badge: "신상품",
-    name: "Santal Mist",
-    desc: "크리미 우드, 앰버, 모스",
-    price: "₩68,000",
-    image: "/product2.png",
-  },
-  {
-    badge: "베스트셀러",
-    name: "Oud & Herb",
-    desc: "다크 레진, 세이지, 타임",
-    price: "₩76,000",
-    image: "/product3.png",
-  },
-];
-
 const features = [
   { title: "식물성 추출물", desc: "12종 냉압착 원료로 피부 자극 없이 향을 전달합니다." },
   { title: "휘발성 유기화합물 0%", desc: "엄격한 분자 분석으로 유해 성분을 완전히 배제합니다." },
@@ -44,7 +22,8 @@ const features = [
 ];
 
 export default function Home() {
-  const [btnState, setBtnState] = useState({}); // { [index]: "hover" | "active" }
+  const [btnState, setBtnState] = useState({});
+  const router = useRouter();
 
   return (
     <div
@@ -257,12 +236,13 @@ export default function Home() {
                   {product.name}
                 </h3>
                 <p style={{ fontSize: 12, color: "#aaa", marginBottom: 12, letterSpacing: "0.04em" }}>
-                  {product.desc}
+                  {product.shortDesc}
                 </p>
                 <p style={{ fontSize: 15, fontWeight: 500, color: "#1a1a1a", marginBottom: 18 }}>
                   {product.price}
                 </p>
                 <button
+                  onClick={() => router.push(`/product/${product.slug}`)}
                   onMouseEnter={() => setBtnState(s => ({ ...s, [i]: "hover" }))}
                   onMouseLeave={() => setBtnState(s => ({ ...s, [i]: null }))}
                   onMouseDown={() => setBtnState(s => ({ ...s, [i]: "active" }))}
