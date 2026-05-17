@@ -422,24 +422,24 @@ export default function BrandPage() {
           </p>
           <blockquote style={{
             fontFamily: "var(--font-cormorant), Georgia, serif",
-            fontSize: "clamp(28px, 4vw, 54px)",
+            fontSize: "clamp(18px, 2vw, 30px)",
             fontWeight: 400,
             fontStyle: "italic",
             color: "white",
-            lineHeight: 1.4,
+            lineHeight: 1.7,
             maxWidth: 860,
             margin: "0 auto 48px",
             letterSpacing: "0.01em",
           }}>
-            "자연은 이미 완벽한 정화 시스템을 가지고 있다.<br />
-            우리는 그것을 찾아내 담았을 뿐이다."
+            <span style={{ display: "block", whiteSpace: "nowrap" }}>"자연은 이미 완벽한 정화 시스템을 가지고 있다.</span>
+            <span style={{ display: "block", whiteSpace: "nowrap" }}>우리는 그것을 찾아내 담았을 뿐이다."</span>
           </blockquote>
           <p style={{
             fontSize: 11,
             letterSpacing: "0.18em",
             color: "rgba(255,255,255,0.35)",
           }}>
-            — MEG 창립자
+            — MEG 연구소 일동
           </p>
         </FadeIn>
       </section>
