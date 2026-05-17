@@ -1,4 +1,4 @@
-import { Cormorant_Garamond, Inter, Barlow_Condensed } from "next/font/google";
+import { Cormorant_Garamond, Inter, Barlow_Condensed, Nanum_Pen_Script } from "next/font/google";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -23,6 +23,13 @@ const barlow = Barlow_Condensed({
   display: "swap",
 });
 
+const nanumPen = Nanum_Pen_Script({
+  variable: "--font-handwriting",
+  subsets: ["latin"],
+  weight: ["400"],
+  display: "swap",
+});
+
 export const metadata = {
   title: "MEG — 프리미엄 보태니컬 케어",
   description:
@@ -31,7 +38,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="ko" className={`${cormorant.variable} ${inter.variable} ${barlow.variable}`}>
+    <html lang="ko" className={`${cormorant.variable} ${inter.variable} ${barlow.variable} ${nanumPen.variable}`}>
       <body>{children}</body>
     </html>
   );

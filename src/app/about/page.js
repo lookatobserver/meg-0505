@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "@/components/Logo";
-import CeoCaricature from "@/components/CeoCaricature";
 
 export const metadata = {
   title: "ABOUT — MEG Microbial Eco Guardians",
@@ -174,19 +173,44 @@ export default function AboutPage() {
           alignItems: "flex-start",
         }}>
 
-          {/* Left: CEO caricature */}
+          {/* Left: CEO portrait */}
           <div style={{ position: "sticky", top: 120 }}>
-            {/* Caricature card */}
+            {/* 준비중 card */}
             <div style={{
-              backgroundColor: "#ffffff",
+              backgroundColor: "#f4f4f2",
               border: "1px solid #e8e8e4",
               borderRadius: 8,
-              padding: "20px 20px 0",
               marginBottom: 20,
-              boxShadow: "0 8px 32px rgba(0,0,0,0.06)",
               overflow: "hidden",
+              aspectRatio: "3 / 4",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 16,
             }}>
-              <CeoCaricature width={300} height={400} />
+              <div style={{
+                width: 72,
+                height: 72,
+                borderRadius: "50%",
+                backgroundColor: "#e8e8e4",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}>
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#bbb" strokeWidth="1.2">
+                  <circle cx="12" cy="8" r="4" />
+                  <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
+                </svg>
+              </div>
+              <div style={{ textAlign: "center" }}>
+                <p style={{ fontSize: 13, color: "#aaa", letterSpacing: "0.12em", marginBottom: 6 }}>
+                  준비중
+                </p>
+                <p style={{ fontSize: 11, color: "#ccc", letterSpacing: "0.08em" }}>
+                  Coming Soon
+                </p>
+              </div>
             </div>
 
             {/* Name card */}
@@ -238,48 +262,36 @@ export default function AboutPage() {
 
             <div style={{ display: "flex", flexDirection: "column" }}>
               {ceoMessage.map((para, i) => {
-                if (para.type === "greeting") return (
-                  <p key={i} style={{
-                    fontFamily: "var(--font-cormorant), Georgia, serif",
-                    fontSize: 26,
-                    fontWeight: 400,
-                    color: "#1a1a1a",
-                    lineHeight: 1.4,
-                    letterSpacing: "0.02em",
-                    marginBottom: 28,
-                  }}>{para.text}</p>
-                );
+                const hw = "var(--font-handwriting), cursive";
                 if (para.type === "quote") return (
                   <p key={i} style={{
-                    fontFamily: "var(--font-cormorant), Georgia, serif",
-                    fontSize: 19,
-                    fontWeight: 400,
-                    fontStyle: "italic",
+                    fontFamily: hw,
+                    fontSize: 24,
                     color: "#2d6a4f",
-                    lineHeight: 1.6,
+                    lineHeight: 1.8,
                     borderLeft: "3px solid #2d6a4f",
                     paddingLeft: 20,
                     marginTop: 4,
-                    marginBottom: 24,
+                    marginBottom: 28,
+                    whiteSpace: "pre-line",
                   }}>{para.text}</p>
                 );
                 if (para.type === "heading") return (
                   <p key={i} style={{
-                    fontSize: 11,
-                    fontWeight: 600,
-                    letterSpacing: "0.18em",
+                    fontFamily: hw,
+                    fontSize: 26,
                     color: "#1a1a1a",
-                    marginTop: 12,
-                    marginBottom: 16,
-                    textTransform: "uppercase",
+                    lineHeight: 1.4,
+                    marginTop: 16,
+                    marginBottom: 12,
                   }}>{para.text}</p>
                 );
                 if (para.type === "closing") return (
                   <p key={i} style={{
-                    fontSize: 15,
-                    fontWeight: 300,
-                    lineHeight: 2,
+                    fontFamily: hw,
+                    fontSize: 22,
                     color: "#444",
+                    lineHeight: 2,
                     marginTop: 12,
                     marginBottom: 8,
                     whiteSpace: "pre-line",
@@ -287,8 +299,8 @@ export default function AboutPage() {
                 );
                 if (para.type === "sign") return (
                   <p key={i} style={{
-                    fontSize: 15,
-                    fontWeight: 500,
+                    fontFamily: hw,
+                    fontSize: 26,
                     color: "#1a1a1a",
                     marginTop: 8,
                     marginBottom: 0,
@@ -297,12 +309,11 @@ export default function AboutPage() {
                 // body (default)
                 return (
                   <p key={i} style={{
-                    fontSize: 15,
-                    fontWeight: 300,
-                    lineHeight: 2,
-                    color: "#555",
-                    marginBottom: 24,
-                    letterSpacing: "0.01em",
+                    fontFamily: hw,
+                    fontSize: 21,
+                    lineHeight: 2.1,
+                    color: "#444",
+                    marginBottom: 26,
                     whiteSpace: "pre-line",
                   }}>{para.text}</p>
                 );
