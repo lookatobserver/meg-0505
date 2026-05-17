@@ -273,7 +273,7 @@ export default function Home() {
                     backgroundColor: isActive ? "#333" : isHover ? "#1a1a1a" : "transparent",
                     color: (isHover || isActive) ? "white" : "#1a1a1a",
                     border: "1px solid #1a1a1a",
-                    fontSize: 11,
+                    fontSize: 16,
                     letterSpacing: "0.14em",
                     cursor: "pointer",
                     transition: "background-color 0.18s, color 0.18s, transform 0.1s",
