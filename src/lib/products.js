@@ -80,7 +80,7 @@ export const products = [
     badge: "신상품",
     name: "컴팩트 무소음 탈취기",
     shortDesc: "냉장고용 컴팩트한 사이즈",
-    price: "₩8,900",
+    price: "₩89,000",
     image: "/new10.png",
     cardBg: "#edf5f0",
     longDesc:
