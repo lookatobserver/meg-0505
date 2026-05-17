@@ -19,7 +19,7 @@ const products = [
     name: "Verveine No. 9",
     desc: "시트러스, 바질, 베티버",
     price: "₩58,000",
-    image: "/product1.png",
+    image: "/black01.png",
   },
   {
     badge: "신상품",
