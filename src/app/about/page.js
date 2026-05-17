@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "@/components/Logo";
+import CeoCaricature from "@/components/CeoCaricature";
 
 export const metadata = {
   title: "ABOUT — MEG Microbial Eco Guardians",
@@ -142,71 +143,54 @@ export default function AboutPage() {
           alignItems: "flex-start",
         }}>
 
-          {/* Left: CEO portrait area */}
+          {/* Left: CEO caricature */}
           <div style={{ position: "sticky", top: 120 }}>
+            {/* Caricature card */}
             <div style={{
-              aspectRatio: "3 / 4",
-              backgroundColor: "#e8e8e4",
-              borderRadius: 4,
+              backgroundColor: "#ffffff",
+              border: "1px solid #e8e8e4",
+              borderRadius: 8,
+              padding: "20px 20px 0",
+              marginBottom: 20,
+              boxShadow: "0 8px 32px rgba(0,0,0,0.06)",
               overflow: "hidden",
-              position: "relative",
-              marginBottom: 28,
             }}>
-              <Image
-                src="/ceo.png"
-                alt="안성순 발효연구원장"
-                fill
-                style={{ objectFit: "cover", objectPosition: "center top" }}
-              />
-              {/* Subtle green overlay at bottom */}
-              <div style={{
-                position: "absolute",
-                bottom: 0,
-                left: 0,
-                right: 0,
-                height: "35%",
-                background: "linear-gradient(to top, rgba(27,67,50,0.7), transparent)",
-              }} />
-              <div style={{
-                position: "absolute",
-                bottom: 24,
-                left: 24,
-              }}>
-                <div style={{
-                  fontFamily: "var(--font-cormorant), Georgia, serif",
-                  fontSize: 22,
-                  fontWeight: 400,
-                  color: "white",
-                  letterSpacing: "0.04em",
-                  marginBottom: 4,
-                }}>
-                  안성순
-                </div>
-                <div style={{
-                  fontSize: 10,
-                  letterSpacing: "0.16em",
-                  color: "rgba(255,255,255,0.6)",
-                }}>
-                  발효연구원장 · 한서대학교산학연구원
-                </div>
-              </div>
+              <CeoCaricature width={300} height={400} />
             </div>
 
-            {/* Signature area */}
+            {/* Name card */}
             <div style={{
               padding: "20px 24px",
               borderLeft: "3px solid #2d6a4f",
               backgroundColor: "#ffffff",
+              borderRadius: "0 4px 4px 0",
             }}>
-              <p style={{ fontSize: 11, color: "#bbb", letterSpacing: "0.12em", marginBottom: 8 }}>FOUNDED</p>
-              <p style={{
+              <div style={{
                 fontFamily: "var(--font-cormorant), Georgia, serif",
-                fontSize: 18,
-                color: "#1a1a1a",
+                fontSize: 22,
                 fontWeight: 400,
+                color: "#1a1a1a",
+                marginBottom: 4,
+                letterSpacing: "0.04em",
               }}>
-                2022 · 대한민국
-              </p>
+                안성순
+              </div>
+              <div style={{ fontSize: 10, letterSpacing: "0.14em", color: "#aaa", marginBottom: 12 }}>
+                발효연구원장 · 한서대학교산학연구원
+              </div>
+              <div style={{
+                display: "flex",
+                gap: 8,
+                alignItems: "center",
+              }}>
+                <div style={{
+                  width: 6, height: 6, borderRadius: "50%",
+                  backgroundColor: "#2d6a4f",
+                }} />
+                <span style={{ fontSize: 11, color: "#bbb", letterSpacing: "0.1em" }}>
+                  MEG Microbial Eco Guardians
+                </span>
+              </div>
             </div>
           </div>
 
