@@ -7,8 +7,7 @@ import { useRouter } from "next/navigation";
 import { products } from "@/lib/products";
 
 const gnbItems = [
-  { label: "전체 상품", href: "/shop" },
-  { label: "베스트", href: "/best" },
+  { label: "브랜드 스토리", href: "/brand", accent: true },
   { label: "신상품", href: "/new" },
   { label: "성분 분석", href: "/lab" },
   { label: "이벤트", href: "/events" },
@@ -73,26 +72,42 @@ export default function Home() {
           {/* GNB */}
           <nav style={{ display: "flex", gap: 36, alignItems: "center" }}>
             {gnbItems.map((item) => (
-              <Link key={item.href} href={item.href} style={{
-                fontSize: 12,
-                letterSpacing: "0.08em",
-                color: "#555",
-                textDecoration: "none",
-                transition: "color 0.2s",
-              }}
-              onMouseEnter={e => e.target.style.color = "#1a1a1a"}
-              onMouseLeave={e => e.target.style.color = "#555"}
-              >
-                {item.label}
-              </Link>
+              item.accent ? (
+                <Link key={item.href} href={item.href} style={{
+                  fontSize: 11,
+                  letterSpacing: "0.1em",
+                  color: "#fff",
+                  textDecoration: "none",
+                  backgroundColor: "#1b4332",
+                  padding: "6px 14px",
+                  borderRadius: 2,
+                  fontWeight: 500,
+                  transition: "background-color 0.2s",
+                }}
+                onMouseEnter={e => e.currentTarget.style.backgroundColor = "#2d6a4f"}
+                onMouseLeave={e => e.currentTarget.style.backgroundColor = "#1b4332"}
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <Link key={item.href} href={item.href} style={{
+                  fontSize: 12,
+                  letterSpacing: "0.08em",
+                  color: "#555",
+                  textDecoration: "none",
+                  transition: "color 0.2s",
+                }}
+                onMouseEnter={e => e.currentTarget.style.color = "#1a1a1a"}
+                onMouseLeave={e => e.currentTarget.style.color = "#555"}
+                >
+                  {item.label}
+                </Link>
+              )
             ))}
           </nav>
 
           {/* Right actions */}
           <div style={{ display: "flex", gap: 24, alignItems: "center" }}>
-            <Link href="/brand" style={{ fontSize: 12, letterSpacing: "0.08em", color: "#555", textDecoration: "none" }}>
-              브랜드 스토리
-            </Link>
             <Link href="/cart" style={{
               fontSize: 12,
               letterSpacing: "0.08em",
