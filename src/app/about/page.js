@@ -175,42 +175,21 @@ export default function AboutPage() {
 
           {/* Left: CEO portrait */}
           <div style={{ position: "sticky", top: 120 }}>
-            {/* 준비중 card */}
+            {/* CEO illustration */}
             <div style={{
-              backgroundColor: "#f4f4f2",
-              border: "1px solid #e8e8e4",
               borderRadius: 8,
               marginBottom: 20,
               overflow: "hidden",
+              position: "relative",
               aspectRatio: "3 / 4",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: 16,
+              boxShadow: "0 8px 32px rgba(0,0,0,0.10)",
             }}>
-              <div style={{
-                width: 72,
-                height: 72,
-                borderRadius: "50%",
-                backgroundColor: "#e8e8e4",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}>
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#bbb" strokeWidth="1.2">
-                  <circle cx="12" cy="8" r="4" />
-                  <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
-                </svg>
-              </div>
-              <div style={{ textAlign: "center" }}>
-                <p style={{ fontSize: 13, color: "#aaa", letterSpacing: "0.12em", marginBottom: 6 }}>
-                  준비중
-                </p>
-                <p style={{ fontSize: 11, color: "#ccc", letterSpacing: "0.08em" }}>
-                  Coming Soon
-                </p>
-              </div>
+              <Image
+                src="/an.png"
+                alt="안성순 발효연구원장"
+                fill
+                style={{ objectFit: "cover", objectPosition: "center top" }}
+              />
             </div>
 
             {/* Name card */}
