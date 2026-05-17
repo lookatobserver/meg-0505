@@ -362,7 +362,7 @@ export default function AboutPage() {
           margin: "0 auto",
           letterSpacing: "0.01em",
         }}>
-          "당신의 공간을 다시 숨 쉬게, MEG가 만드는 일상."
+          &ldquo;당신의 공간을 다시 숨 쉬게,<br />MEG가 만드는 일상.&rdquo;
         </p>
         <p style={{ fontSize: 10, letterSpacing: "0.2em", color: "#ccc", marginTop: 20 }}>
           MEG FOUNDING PRINCIPLE
