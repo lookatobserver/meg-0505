@@ -149,17 +149,18 @@ export default function Home() {
           <em style={{ color: "#2d6a4f" }}>완벽한 조화.</em>
         </h1>
 
-        {/* Circular hero image */}
+        {/* Hero image */}
         <div style={{
-          width: 280,
-          height: 280,
-          borderRadius: "50%",
-          overflow: "hidden",
+          width: "100%",
+          maxWidth: 900,
           margin: "48px auto 40px",
           position: "relative",
-          boxShadow: "0 20px 60px rgba(0,0,0,0.12)",
+          aspectRatio: "16 / 11",
+          borderRadius: 16,
+          overflow: "hidden",
+          boxShadow: "0 24px 72px rgba(0,0,0,0.10)",
         }}>
-          <Image src="/product.png" alt="MEG 대표 제품" fill style={{ objectFit: "cover" }} priority />
+          <Image src="/hero.png" alt="MEG 제품" fill style={{ objectFit: "cover", objectPosition: "center" }} priority />
         </div>
 
         <p style={{
