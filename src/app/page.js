@@ -279,14 +279,15 @@ export default function Home() {
           {/* Circular image */}
           <div style={{ display: "flex", justifyContent: "center" }}>
             <div style={{
-              width: 340,
-              height: 340,
+              width: 480,
+              height: 480,
               borderRadius: "50%",
               overflow: "hidden",
               position: "relative",
-              boxShadow: "0 0 60px rgba(45,106,79,0.3)",
+              backgroundColor: "#fff",
+              boxShadow: "0 0 80px rgba(45,106,79,0.25)",
             }}>
-              <Image src="/product1.png" alt="성분 분석" fill style={{ objectFit: "cover" }} />
+              <Image src="/new01.png" alt="제품 구성" fill style={{ objectFit: "contain", padding: "24px" }} />
             </div>
           </div>
 
