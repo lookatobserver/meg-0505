@@ -35,24 +35,26 @@ export default function BannerPopup() {
     }}>
       <div style={{
         width: "min(400px, 96vw)",
+        maxHeight: "94vh",
         borderRadius: 8,
         overflow: "hidden",
         boxShadow: "0 20px 60px rgba(0,0,0,0.4)",
         display: "flex",
         flexDirection: "column",
       }}>
-        {/* 이미지 전체 표시 */}
-        <Image
-          src="/banner.png"
-          alt="팝업 배너"
-          width={260}
-          height={779}
-          style={{ width: "100%", height: "auto", display: "block" }}
-          priority
-        />
+        {/* 이미지 — 버튼 높이 뺀 나머지 공간 채움 */}
+        <div style={{ flex: 1, minHeight: 0, position: "relative" }}>
+          <Image
+            src="/banner.png"
+            alt="팝업 배너"
+            fill
+            style={{ objectFit: "cover", objectPosition: "top" }}
+            priority
+          />
+        </div>
 
         {/* 버튼 — 이미지 바로 아래 */}
-        <div style={{ display: "flex" }}>
+        <div style={{ display: "flex", flexShrink: 0 }}>
           <button
             onClick={closeForWeek}
             style={{
