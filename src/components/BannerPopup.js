@@ -36,8 +36,8 @@ export default function BannerPopup() {
       {/* 이미지 비율(575:1318) 그대로 유지, 뷰포트에 맞게 축소 */}
       <div style={{
         position: "relative",
-        width: "min(575px, 96vw, calc(94vh * 575 / 1318))",
-        aspectRatio: "575 / 1318",
+        width: "min(400px, 96vw, calc(94vh * 260 / 779))",
+        aspectRatio: "260 / 779",
         overflow: "hidden",
         borderRadius: 8,
         boxShadow: "0 20px 60px rgba(0,0,0,0.4)",
