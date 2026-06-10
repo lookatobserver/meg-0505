@@ -33,43 +33,37 @@ export default function BannerPopup() {
       justifyContent: "center",
       backgroundColor: "rgba(0,0,0,0.6)",
     }}>
-      {/* 이미지 비율(575:1318) 그대로 유지, 뷰포트에 맞게 축소 */}
       <div style={{
-        position: "relative",
-        width: "min(400px, 96vw, calc(94vh * 260 / 779))",
-        aspectRatio: "260 / 779",
-        overflow: "hidden",
+        width: "min(400px, 96vw)",
         borderRadius: 8,
+        overflow: "hidden",
         boxShadow: "0 20px 60px rgba(0,0,0,0.4)",
+        display: "flex",
+        flexDirection: "column",
       }}>
+        {/* 이미지 전체 표시 */}
         <Image
           src="/banner.png"
           alt="팝업 배너"
-          fill
-          style={{ objectFit: "cover" }}
+          width={260}
+          height={779}
+          style={{ width: "100%", height: "auto", display: "block" }}
           priority
         />
 
-        {/* 버튼 — 이미지 맨 아래 오버레이 */}
-        <div style={{
-          position: "absolute",
-          bottom: 0,
-          left: 0,
-          right: 0,
-          display: "flex",
-        }}>
+        {/* 버튼 — 이미지 바로 아래 */}
+        <div style={{ display: "flex" }}>
           <button
             onClick={closeForWeek}
             style={{
               flex: 1,
               padding: "13px 0",
               fontSize: 13,
-              color: "#ccc",
-              background: "rgba(0,0,0,0.75)",
+              color: "#888",
+              background: "#f0f0f0",
               border: "none",
-              borderRight: "1px solid rgba(255,255,255,0.15)",
+              borderRight: "1px solid #ddd",
               cursor: "pointer",
-              backdropFilter: "blur(4px)",
             }}
           >
             일주일 동안 보지 않기
@@ -81,11 +75,10 @@ export default function BannerPopup() {
               padding: "13px 0",
               fontSize: 13,
               color: "#fff",
-              background: "rgba(0,0,0,0.75)",
+              background: "#222",
               border: "none",
               cursor: "pointer",
               fontWeight: 600,
-              backdropFilter: "blur(4px)",
             }}
           >
             닫기
