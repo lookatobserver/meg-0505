@@ -80,7 +80,7 @@ export const products = [
         color: "#a5d6a7",
       },
     ],
-    detailImage: "/water01.jpg",
+    detailImages: ["/m1.png", "/m2.png", "/m3.png", "/m4.png", "/m5.png", "/m6.png"],
   },
   {
     slug: "compact-deodorizer",
