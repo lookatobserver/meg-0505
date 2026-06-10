@@ -27,7 +27,7 @@ export const products = [
       "/d01.jpeg", "/d02.jpeg", "/d03.jpeg", "/d04.png",
       "/d05.jpeg", "/d06.jpeg", "/d07.jpeg", "/d08.gif",
       "/d09.jpeg", "/d10.jpeg", "/d11.jpeg", "/d12.gif",
-      "/d13.jpeg", "/d14.jpeg", "/d15.jpeg", "/d16.gif",
+      "/d13.jpeg", "/d15.jpeg", "/d16.gif",
       "/d17.jpeg", "/d18.jpeg", "/d19.jpeg", "/d20.gif",
       "/d21.gif", "/d22.jpeg",
     ],
