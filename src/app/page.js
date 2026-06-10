@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { products } from "@/lib/products";
 import Logo from "@/components/Logo";
+import BannerPopup from "@/components/BannerPopup";
 
 const gnbItems = [
   { label: "브랜드 스토리", href: "/brand", accent: true },
@@ -26,6 +27,8 @@ export default function Home() {
   const router = useRouter();
 
   return (
+    <>
+    <BannerPopup />
     <div
       style={{ backgroundColor: "#f8f8f6", minHeight: "100vh", fontFamily: "var(--font-sans)" }}
       onClickCapture={(e) => {
@@ -450,5 +453,6 @@ export default function Home() {
       </footer>
 
     </div>
+    </>
   );
 }
