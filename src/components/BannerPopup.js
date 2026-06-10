@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function BannerPopup() {
   const [visible, setVisible] = useState(false);
@@ -34,32 +35,33 @@ export default function BannerPopup() {
       backgroundColor: "rgba(0,0,0,0.6)",
     }}>
       <div style={{
-        width: "min(400px, 96vw)",
-        maxHeight: "94vh",
+        width: "min(360px, 92vw)",
         borderRadius: 8,
         overflow: "hidden",
         boxShadow: "0 20px 60px rgba(0,0,0,0.4)",
-        display: "flex",
-        flexDirection: "column",
+        backgroundColor: "#fff",
       }}>
-        {/* 이미지 — 버튼 높이 뺀 나머지 공간 채움 */}
-        <div style={{ flex: 1, minHeight: 0, position: "relative" }}>
+
+        {/* 이미지 클릭 시 제품 상세 이동 */}
+        <Link href="/product/deodorizer" onClick={close} style={{ display: "block" }}>
           <Image
             src="/banner.png"
-            alt="팝업 배너"
-            fill
-            style={{ objectFit: "cover", objectPosition: "top" }}
+            alt="친환경 무소음 탈취기"
+            width={260}
+            height={779}
+            style={{ width: "100%", height: "auto", display: "block" }}
             priority
+            unoptimized
           />
-        </div>
+        </Link>
 
-        {/* 버튼 — 이미지 바로 아래 */}
-        <div style={{ display: "flex", flexShrink: 0 }}>
+        {/* 버튼 */}
+        <div style={{ display: "flex" }}>
           <button
             onClick={closeForWeek}
             style={{
               flex: 1,
-              padding: "13px 0",
+              padding: "14px 0",
               fontSize: 13,
               color: "#888",
               background: "#f0f0f0",
@@ -74,7 +76,7 @@ export default function BannerPopup() {
             onClick={close}
             style={{
               flex: 1,
-              padding: "13px 0",
+              padding: "14px 0",
               fontSize: 13,
               color: "#fff",
               background: "#222",
