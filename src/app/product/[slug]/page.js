@@ -232,24 +232,20 @@ export default async function ProductPage({ params }) {
 
         </div>
 
-        {/* ── Detail Image (제품별 추가 이미지) ── */}
-        {product.detailImage && (
-          <div style={{ marginTop: 80 }}>
-            <div style={{
-              borderRadius: 20,
-              overflow: "hidden",
-              boxShadow: "0 16px 48px rgba(0,0,0,0.08)",
-              maxWidth: 600,
-              margin: "0 auto",
-            }}>
+        {/* ── Detail Images (제품별 추가 이미지) ── */}
+        {(product.detailImages || (product.detailImage && [product.detailImage])) && (
+          <div style={{ marginTop: 80, maxWidth: 860, margin: "80px auto 0" }}>
+            {(product.detailImages || [product.detailImage]).map((src, i) => (
               <Image
-                src={product.detailImage}
-                alt={`${product.name} 상세 정보`}
-                width={600}
-                height={1000}
+                key={i}
+                src={src}
+                alt={`${product.name} 상세 이미지 ${i + 1}`}
+                width={860}
+                height={1}
+                unoptimized={src.endsWith(".gif")}
                 style={{ width: "100%", height: "auto", display: "block" }}
               />
-            </div>
+            ))}
           </div>
         )}
 
