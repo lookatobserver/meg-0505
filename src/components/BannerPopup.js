@@ -5,7 +5,6 @@ import Image from "next/image";
 
 export default function BannerPopup() {
   const [visible, setVisible] = useState(false);
-  const [noShow, setNoShow] = useState(false);
 
   useEffect(() => {
     const expiry = localStorage.getItem("bannerHideUntil");
@@ -13,89 +12,76 @@ export default function BannerPopup() {
     setVisible(true);
   }, []);
 
+  function closeForWeek() {
+    localStorage.setItem("bannerHideUntil", Date.now() + 7 * 24 * 60 * 60 * 1000);
+    setVisible(false);
+  }
+
   function close() {
-    if (noShow) {
-      localStorage.setItem("bannerHideUntil", Date.now() + 7 * 24 * 60 * 60 * 1000);
-    }
     setVisible(false);
   }
 
   if (!visible) return null;
 
   return (
-    <div
-      style={{
-        position: "fixed",
-        inset: 0,
-        zIndex: 9999,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: "rgba(0,0,0,0.55)",
-      }}
-      onClick={close}
-    >
-      <div
-        style={{
-          position: "relative",
-          width: "min(420px, 92vw)",
-          backgroundColor: "#fff",
-          borderRadius: 8,
-          overflow: "hidden",
-          boxShadow: "0 8px 40px rgba(0,0,0,0.28)",
-        }}
-        onClick={(e) => e.stopPropagation()}
-      >
+    <div style={{
+      position: "fixed",
+      top: 0, left: 0, right: 0, bottom: 0,
+      zIndex: 9999,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      backgroundColor: "rgba(0,0,0,0.6)",
+    }}>
+      <div style={{
+        width: "min(400px, 90vw)",
+        backgroundColor: "#fff",
+        borderRadius: 10,
+        overflow: "hidden",
+        boxShadow: "0 20px 60px rgba(0,0,0,0.35)",
+      }}>
+
         {/* 배너 이미지 */}
         <Image
           src="/banner.png"
           alt="팝업 배너"
-          width={420}
-          height={600}
+          width={400}
+          height={570}
           style={{ width: "100%", height: "auto", display: "block" }}
           priority
         />
 
-        {/* 하단 바 */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            padding: "12px 16px",
-            backgroundColor: "#222",
-          }}
-        >
-          <label
+        {/* 버튼 영역 */}
+        <div style={{
+          display: "flex",
+          borderTop: "1px solid #e0e0e0",
+        }}>
+          <button
+            onClick={closeForWeek}
             style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 8,
+              flex: 1,
+              padding: "14px 0",
               fontSize: 13,
-              color: "#ccc",
+              color: "#888",
+              background: "#f5f5f5",
+              border: "none",
+              borderRight: "1px solid #e0e0e0",
               cursor: "pointer",
-              userSelect: "none",
             }}
           >
-            <input
-              type="checkbox"
-              checked={noShow}
-              onChange={(e) => setNoShow(e.target.checked)}
-              style={{ width: 15, height: 15, cursor: "pointer", accentColor: "#4ecdc4" }}
-            />
             일주일 동안 보지 않기
-          </label>
-
+          </button>
           <button
             onClick={close}
             style={{
+              flex: 1,
+              padding: "14px 0",
               fontSize: 13,
-              color: "#aaa",
-              background: "none",
-              border: "1px solid #555",
-              borderRadius: 4,
-              padding: "5px 16px",
+              color: "#fff",
+              background: "#222",
+              border: "none",
               cursor: "pointer",
+              fontWeight: 500,
             }}
           >
             닫기
