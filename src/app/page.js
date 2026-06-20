@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { products } from "@/lib/products";
 import Logo from "@/components/Logo";
 import BannerPopup from "@/components/BannerPopup";
+import UusPopup from "@/components/UusPopup";
 
 const gnbItems = [
   { label: "브랜드 스토리", href: "/brand", accent: true },
@@ -29,13 +30,15 @@ export default function Home() {
   return (
     <>
     <BannerPopup />
+    <UusPopup />
     <div
       style={{ backgroundColor: "#f8f8f6", minHeight: "100vh", fontFamily: "var(--font-sans)" }}
       onClickCapture={(e) => {
         const anchor = e.target.closest("a");
         if (anchor) {
           const href = anchor.getAttribute("href");
-          if (href !== "/" && href !== "/lab" && href !== "/brand" && href !== "/about") {
+          const path = href.replace(/\/$/, "");
+          if (path !== "" && path !== "/lab" && path !== "/brand" && path !== "/about" && path !== "/cert") {
             e.preventDefault();
             e.stopPropagation();
             alert("준비중입니다.");
@@ -103,14 +106,14 @@ export default function Home() {
 
           {/* Right actions */}
           <div style={{ display: "flex", gap: 24, alignItems: "center" }}>
-            <Link href="/cart" style={{
+            <Link href="/cert" style={{
               fontSize: 12,
               letterSpacing: "0.08em",
               color: "#1a1a1a",
               textDecoration: "none",
               fontWeight: 500,
             }}>
-              장바구니 (0)
+              특허·증명
             </Link>
           </div>
         </div>
@@ -239,25 +242,25 @@ export default function Home() {
                   {product.price}
                 </p>
                 <button
-                  onClick={() => router.push(`/product/${product.slug}`)}
-                  onMouseEnter={() => setBtnState(s => ({ ...s, [i]: "hover" }))}
+                  onClick={() => product.badge !== "준비중" && router.push(`/product/${product.slug}`)}
+                  onMouseEnter={() => product.badge !== "준비중" && setBtnState(s => ({ ...s, [i]: "hover" }))}
                   onMouseLeave={() => setBtnState(s => ({ ...s, [i]: null }))}
-                  onMouseDown={() => setBtnState(s => ({ ...s, [i]: "active" }))}
-                  onMouseUp={() => setBtnState(s => ({ ...s, [i]: "hover" }))}
+                  onMouseDown={() => product.badge !== "준비중" && setBtnState(s => ({ ...s, [i]: "active" }))}
+                  onMouseUp={() => product.badge !== "준비중" && setBtnState(s => ({ ...s, [i]: "hover" }))}
                   style={{
                     width: "100%",
                     padding: "11px 0",
-                    backgroundColor: isActive ? "#333" : isHover ? "#1a1a1a" : "transparent",
-                    color: (isHover || isActive) ? "white" : "#1a1a1a",
-                    border: "1px solid #1a1a1a",
+                    backgroundColor: product.badge === "준비중" ? "#f0f0f0" : isActive ? "#333" : isHover ? "#1a1a1a" : "transparent",
+                    color: product.badge === "준비중" ? "#bbb" : (isHover || isActive) ? "white" : "#1a1a1a",
+                    border: `1px solid ${product.badge === "준비중" ? "#ddd" : "#1a1a1a"}`,
                     fontSize: 16,
                     letterSpacing: "0.14em",
-                    cursor: "pointer",
+                    cursor: product.badge === "준비중" ? "default" : "pointer",
                     transition: "background-color 0.18s, color 0.18s, transform 0.1s",
                     transform: isActive ? "scale(0.97)" : "scale(1)",
                   }}
                 >
-                  제품 상세
+                  {product.badge === "준비중" ? "출시 예정" : "제품 상세"}
                 </button>
               </div>
             </div>
@@ -396,6 +399,11 @@ export default function Home() {
               <p style={{ fontSize: 13, lineHeight: 1.8, color: "#aaa", fontWeight: 300, maxWidth: 200 }}>
                 신체와 대지를 기리는 의미 있는 향 의식을 만듭니다.
               </p>
+              <div style={{ marginTop: 16, fontSize: 12, color: "#aaa", fontWeight: 300, lineHeight: 2 }}>
+                <div>대표 전화 &nbsp;041-688-7430</div>
+                <div>팩스 &nbsp;041-688-7431</div>
+                <div>회사 휴대폰 &nbsp;010-2936-2005</div>
+              </div>
             </div>
             {[
               { title: "고객 지원", links: [{ label: "공지사항", href: "/notice" }, { label: "자주 묻는 질문", href: "/faq" }, { label: "1:1 문의", href: "/qna" }, { label: "배송 안내", href: "/shipping" }] },
