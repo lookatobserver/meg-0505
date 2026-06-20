@@ -400,7 +400,7 @@ export default function Home() {
                 신체와 대지를 기리는 의미 있는 향 의식을 만듭니다.
               </p>
               <div style={{ marginTop: 16, fontSize: 12, color: "#aaa", fontWeight: 300, lineHeight: 2 }}>
-                <div>대표 전화 &nbsp;041-688-7430</div>
+                <div style={{ fontSize: 14, fontWeight: 600, color: "#555", letterSpacing: "0.05em" }}>대표 전화 &nbsp;041-688-7430</div>
                 <div>팩스 &nbsp;041-688-7431</div>
                 <div>회사 휴대폰 &nbsp;010-2936-2005</div>
               </div>
