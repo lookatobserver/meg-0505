@@ -67,7 +67,7 @@ export const products = [
       { title: "미국 FDA 등록 성분", desc: "미국 FDA에 등록된 안전한 성분만을 사용합니다." },
       { title: "냄새 근본 분해", desc: "유익균이 냄새 유발 균과 유해 물질을 직접 분해하여 재발을 방지합니다." },
     ],
-    detailImages: ["/m1.png", "/m2.png", "/m3.png", "/m4.png", "/m5.png"],
+    detailImages: ["/m1.png", "/m2.png"],
   },
   {
     slug: "kungkungtall",
