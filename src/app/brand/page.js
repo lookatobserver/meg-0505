@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import Logo from "@/components/Logo";
+import NavHeader from "@/components/NavHeader";
 
 const awards = [
   {
@@ -26,7 +26,7 @@ const awards = [
     year: "2023",
     category: "CERTIFICATION",
     title: "KC 안전 인증\n획득",
-    body: "친환경 무소음 탈취기가 국내 전기용품안전관리법에 따른 KC 인증을 취득, 전기 안전성을 공식 인정받았습니다.",
+    body: "자연수케어 탈취기가 국내 전기용품안전관리법에 따른 KC 인증을 취득, 전기 안전성을 공식 인정받았습니다.",
     badge: "KC CERTIFIED",
     accent: "#4a5568",
   },
@@ -103,6 +103,28 @@ function FadeIn({ children, delay = 0, style = {} }) {
   );
 }
 
+const navItems = [
+  { label: "성분 분석", href: "/lab" },
+  { label: "브랜드 스토리", href: "/brand", active: true },
+];
+
+const rightContent = (
+  <Link href="/" style={{
+    display: "flex",
+    alignItems: "center",
+    gap: 8,
+    fontSize: 12,
+    letterSpacing: "0.08em",
+    color: "#888",
+    textDecoration: "none",
+  }}>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <path d="M19 12H5M12 19l-7-7 7-7" />
+    </svg>
+    메인으로
+  </Link>
+);
+
 export default function BrandPage() {
   const [activeAward, setActiveAward] = useState(null);
 
@@ -110,57 +132,7 @@ export default function BrandPage() {
     <div style={{ backgroundColor: "#f8f8f6", minHeight: "100vh" }}>
 
       {/* ── Header ── */}
-      <header style={{
-        position: "sticky",
-        top: 0,
-        zIndex: 100,
-        backgroundColor: "rgba(248,248,246,0.92)",
-        backdropFilter: "blur(12px)",
-        borderBottom: "1px solid #e8e8e4",
-      }}>
-        <div style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          padding: "18px 56px",
-          maxWidth: 1280,
-          margin: "0 auto",
-        }}>
-          <Logo />
-          <nav style={{ display: "flex", gap: 36, alignItems: "center" }}>
-            {[
-              { label: "성분 분석", href: "/lab" },
-              { label: "브랜드 스토리", href: "/brand", active: true },
-            ].map((item) => (
-              <Link key={item.href} href={item.href} style={{
-                fontSize: 12,
-                letterSpacing: "0.08em",
-                color: item.active ? "#1a1a1a" : "#888",
-                textDecoration: "none",
-                fontWeight: item.active ? 500 : 400,
-                borderBottom: item.active ? "1px solid #1a1a1a" : "none",
-                paddingBottom: item.active ? 2 : 0,
-              }}>
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-          <Link href="/" style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 8,
-            fontSize: 12,
-            letterSpacing: "0.08em",
-            color: "#888",
-            textDecoration: "none",
-          }}>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M19 12H5M12 19l-7-7 7-7" />
-            </svg>
-            메인으로
-          </Link>
-        </div>
-      </header>
+      <NavHeader navItems={navItems} rightContent={rightContent} />
 
       {/* ── Hero ── */}
       <section style={{
@@ -172,12 +144,7 @@ export default function BrandPage() {
         justifyContent: "flex-end",
         overflow: "hidden",
       }}>
-        {/* Background image */}
-        <div style={{
-          position: "absolute",
-          inset: 0,
-          opacity: 0.35,
-        }}>
+        <div style={{ position: "absolute", inset: 0, opacity: 0.35 }}>
           <Image
             src="/hero.png"
             alt="MEG 브랜드"
@@ -186,15 +153,12 @@ export default function BrandPage() {
             priority
           />
         </div>
-
-        {/* Gradient overlay */}
         <div style={{
           position: "absolute",
           inset: 0,
           background: "linear-gradient(to bottom, rgba(13,13,13,0.2) 0%, rgba(13,13,13,0.85) 100%)",
         }} />
 
-        {/* Top label */}
         <div style={{
           position: "absolute",
           top: 56,
@@ -204,12 +168,12 @@ export default function BrandPage() {
           letterSpacing: "0.3em",
           color: "rgba(255,255,255,0.35)",
           textAlign: "center",
+          whiteSpace: "nowrap",
         }}>
           BRAND STORY — SINCE 2022
         </div>
 
-        {/* Hero content */}
-        <div style={{
+        <div className="rsp-pad" style={{
           position: "relative",
           zIndex: 1,
           maxWidth: 1100,
@@ -217,12 +181,10 @@ export default function BrandPage() {
           padding: "0 56px 120px",
           width: "100%",
         }}>
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: 80,
-            alignItems: "flex-end",
-          }}>
+          <div
+            className="rsp-2col"
+            style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "flex-end" }}
+          >
             <div>
               <p style={{
                 fontSize: 10,
@@ -242,7 +204,7 @@ export default function BrandPage() {
                 marginBottom: 0,
               }}>
                 자연의 힘으로<br />
-                <em style={{ color: "#4ade80", fontStyle: "italic", whiteSpace: "nowrap" }}>청정함을 증명하다.</em>
+                <em style={{ color: "#4ade80", fontStyle: "italic" }}>청정함을 증명하다.</em>
               </h1>
             </div>
             <div style={{ paddingBottom: 8 }}>
@@ -258,7 +220,7 @@ export default function BrandPage() {
                 특허 기술이 만나, 자연이 스스로 공기를 정화하는
                 새로운 기준을 만들어갑니다.
               </p>
-              <div style={{ display: "flex", gap: 40 }}>
+              <div style={{ display: "flex", gap: 40, flexWrap: "wrap" }}>
                 {[
                   { v: "99%", l: "악취 원인 제거율" },
                   { v: "0", l: "화학 첨가물" },
@@ -283,7 +245,6 @@ export default function BrandPage() {
           </div>
         </div>
 
-        {/* Scroll hint */}
         <div style={{
           position: "absolute",
           bottom: 40,
@@ -301,7 +262,7 @@ export default function BrandPage() {
       </section>
 
       {/* ── Awards & Recognition ── */}
-      <section style={{ padding: "120px 56px", maxWidth: 1200, margin: "0 auto" }}>
+      <section className="rsp-pad" style={{ padding: "120px 56px", maxWidth: 1200, margin: "0 auto" }}>
         <FadeIn>
           <div style={{ textAlign: "center", marginBottom: 80 }}>
             <p style={{ fontSize: 10, letterSpacing: "0.26em", color: "#bbb", marginBottom: 16 }}>
@@ -320,11 +281,10 @@ export default function BrandPage() {
           </div>
         </FadeIn>
 
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(2, 1fr)",
-          gap: 24,
-        }}>
+        <div
+          className="rsp-2col"
+          style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 24 }}
+        >
           {awards.map((award, i) => (
             <FadeIn key={i} delay={i * 0.1}>
               <div
@@ -341,7 +301,6 @@ export default function BrandPage() {
                   overflow: "hidden",
                 }}
               >
-                {/* Year accent line */}
                 <div style={{
                   position: "absolute",
                   top: 0,
@@ -351,7 +310,7 @@ export default function BrandPage() {
                   backgroundColor: award.accent,
                 }} />
 
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 24 }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 24, flexWrap: "wrap", gap: 8 }}>
                   <div>
                     <span style={{
                       fontSize: 9,
@@ -378,6 +337,7 @@ export default function BrandPage() {
                     padding: "5px 10px",
                     borderRadius: 2,
                     transition: "color 0.3s, border-color 0.3s",
+                    alignSelf: "flex-start",
                   }}>
                     {award.badge}
                   </span>
@@ -411,11 +371,7 @@ export default function BrandPage() {
       </section>
 
       {/* ── Pull Quote ── */}
-      <section style={{
-        backgroundColor: "#1b4332",
-        padding: "120px 56px",
-        textAlign: "center",
-      }}>
+      <section className="rsp-pad" style={{ backgroundColor: "#1b4332", padding: "120px 56px", textAlign: "center" }}>
         <FadeIn>
           <p style={{ fontSize: 10, letterSpacing: "0.26em", color: "rgba(255,255,255,0.3)", marginBottom: 36 }}>
             OUR PHILOSOPHY
@@ -431,21 +387,17 @@ export default function BrandPage() {
             margin: "0 auto 48px",
             letterSpacing: "0.01em",
           }}>
-            <span style={{ display: "block", whiteSpace: "nowrap" }}>"자연은 이미 완벽한 정화 시스템을 가지고 있다.</span>
-            <span style={{ display: "block", whiteSpace: "nowrap" }}>우리는 그것을 찾아내 담았을 뿐이다."</span>
+            <span className="rsp-wrap" style={{ display: "block", whiteSpace: "nowrap" }}>"자연은 이미 완벽한 정화 시스템을 가지고 있다.</span>
+            <span className="rsp-wrap" style={{ display: "block", whiteSpace: "nowrap" }}>우리는 그것을 찾아내 담았을 뿐이다."</span>
           </blockquote>
-          <p style={{
-            fontSize: 11,
-            letterSpacing: "0.18em",
-            color: "rgba(255,255,255,0.35)",
-          }}>
+          <p style={{ fontSize: 11, letterSpacing: "0.18em", color: "rgba(255,255,255,0.35)" }}>
             — MEG 연구소 일동
           </p>
         </FadeIn>
       </section>
 
       {/* ── Brand Values ── */}
-      <section style={{ padding: "120px 56px", maxWidth: 1200, margin: "0 auto" }}>
+      <section className="rsp-pad" style={{ padding: "120px 56px", maxWidth: 1200, margin: "0 auto" }}>
         <FadeIn>
           <div style={{ marginBottom: 80 }}>
             <p style={{ fontSize: 10, letterSpacing: "0.26em", color: "#bbb", marginBottom: 16 }}>
@@ -464,19 +416,21 @@ export default function BrandPage() {
           </div>
         </FadeIn>
 
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(2, 1fr)",
-          gap: "0",
-        }}>
+        <div
+          className="rsp-2col"
+          style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 0 }}
+        >
           {values.map((v, i) => (
             <FadeIn key={i} delay={i * 0.08}>
-              <div style={{
-                padding: "48px 56px",
-                borderTop: "1px solid #e8e8e4",
-                borderRight: i % 2 === 0 ? "1px solid #e8e8e4" : "none",
-                borderBottom: i < 2 ? "none" : "1px solid #e8e8e4",
-              }}>
+              <div
+                className="brand-value-cell"
+                style={{
+                  padding: "48px 56px",
+                  borderTop: "1px solid #e8e8e4",
+                  borderRight: i % 2 === 0 ? "1px solid #e8e8e4" : "none",
+                  borderBottom: i < 2 ? "none" : "1px solid #e8e8e4",
+                }}
+              >
                 <div style={{
                   fontFamily: "var(--font-cormorant), Georgia, serif",
                   fontSize: 64,
@@ -496,13 +450,7 @@ export default function BrandPage() {
                 }}>
                   {v.title}
                 </h3>
-                <p style={{
-                  fontSize: 14,
-                  lineHeight: 1.85,
-                  color: "#888",
-                  fontWeight: 300,
-                  maxWidth: 340,
-                }}>
+                <p style={{ fontSize: 14, lineHeight: 1.85, color: "#888", fontWeight: 300, maxWidth: 340 }}>
                   {v.desc}
                 </p>
               </div>
@@ -512,15 +460,11 @@ export default function BrandPage() {
       </section>
 
       {/* ── Visual Feature: Patent Document ── */}
-      <section style={{ backgroundColor: "#111", padding: "120px 56px" }}>
-        <div style={{
-          maxWidth: 1100,
-          margin: "0 auto",
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: 80,
-          alignItems: "center",
-        }}>
+      <section className="rsp-pad" style={{ backgroundColor: "#111", padding: "120px 56px" }}>
+        <div
+          className="rsp-2col"
+          style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "center" }}
+        >
           <FadeIn>
             <div style={{
               position: "relative",
@@ -537,9 +481,7 @@ export default function BrandPage() {
               />
               <div style={{
                 position: "absolute",
-                bottom: 0,
-                left: 0,
-                right: 0,
+                bottom: 0, left: 0, right: 0,
                 height: "30%",
                 background: "linear-gradient(to top, rgba(0,0,0,0.7), transparent)",
               }} />
@@ -632,7 +574,7 @@ export default function BrandPage() {
       </section>
 
       {/* ── Timeline ── */}
-      <section style={{ padding: "120px 56px", maxWidth: 1000, margin: "0 auto" }}>
+      <section className="rsp-pad" style={{ padding: "120px 56px", maxWidth: 1000, margin: "0 auto" }}>
         <FadeIn>
           <div style={{ textAlign: "center", marginBottom: 80 }}>
             <p style={{ fontSize: 10, letterSpacing: "0.26em", color: "#bbb", marginBottom: 16 }}>
@@ -651,44 +593,45 @@ export default function BrandPage() {
         </FadeIn>
 
         <div style={{ position: "relative" }}>
-          {/* Center line */}
-          <div style={{
-            position: "absolute",
-            left: "50%",
-            top: 0,
-            bottom: 0,
-            width: 1,
-            backgroundColor: "#e8e8e4",
-            transform: "translateX(-50%)",
-          }} />
+          <div
+            className="timeline-center-line"
+            style={{
+              position: "absolute",
+              left: "50%",
+              top: 0,
+              bottom: 0,
+              width: 1,
+              backgroundColor: "#e8e8e4",
+              transform: "translateX(-50%)",
+            }}
+          />
 
           <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
             {timeline.map((item, i) => (
               <FadeIn key={i} delay={i * 0.1}>
-                <div style={{
-                  display: "grid",
-                  gridTemplateColumns: "1fr 1fr",
-                  gap: 0,
-                  padding: "40px 0",
-                  position: "relative",
-                }}>
-                  {/* Dot */}
-                  <div style={{
-                    position: "absolute",
-                    left: "50%",
-                    top: "50%",
-                    transform: "translate(-50%, -50%)",
-                    width: 10,
-                    height: 10,
-                    borderRadius: "50%",
-                    backgroundColor: "#2d6a4f",
-                    border: "3px solid #f8f8f6",
-                    zIndex: 1,
-                  }} />
+                <div
+                  className="rsp-timeline-item"
+                  style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 0, padding: "40px 0", position: "relative" }}
+                >
+                  <div
+                    className="timeline-dot"
+                    style={{
+                      position: "absolute",
+                      left: "50%",
+                      top: "50%",
+                      transform: "translate(-50%, -50%)",
+                      width: 10,
+                      height: 10,
+                      borderRadius: "50%",
+                      backgroundColor: "#2d6a4f",
+                      border: "3px solid #f8f8f6",
+                      zIndex: 1,
+                    }}
+                  />
 
                   {i % 2 === 0 ? (
                     <>
-                      <div style={{ textAlign: "right", paddingRight: 56 }}>
+                      <div className="rsp-text-left" style={{ textAlign: "right", paddingRight: 56 }}>
                         <div style={{
                           fontFamily: "var(--font-cormorant), Georgia, serif",
                           fontSize: 42,
@@ -704,12 +647,12 @@ export default function BrandPage() {
                           {item.detail}
                         </div>
                       </div>
-                      <div />
+                      <div className="timeline-empty" />
                     </>
                   ) : (
                     <>
-                      <div />
-                      <div style={{ paddingLeft: 56 }}>
+                      <div className="timeline-empty" />
+                      <div className="rsp-text-right" style={{ paddingLeft: 56 }}>
                         <div style={{
                           fontFamily: "var(--font-cormorant), Georgia, serif",
                           fontSize: 42,
@@ -735,7 +678,7 @@ export default function BrandPage() {
       </section>
 
       {/* ── Products CTA ── */}
-      <section style={{
+      <section className="rsp-pad" style={{
         backgroundColor: "#f0f0ee",
         borderTop: "1px solid #e8e8e4",
         padding: "100px 56px",
@@ -767,7 +710,7 @@ export default function BrandPage() {
             청정한 공기와 자연의 향을 집으로 들여보세요.
           </p>
 
-          <div style={{ display: "flex", gap: 16, justifyContent: "center" }}>
+          <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
             <Link href="/lab" style={{
               display: "inline-block",
               padding: "13px 36px",
@@ -801,14 +744,10 @@ export default function BrandPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: "#ffffff", borderTop: "1px solid #ebebeb" }}>
-        <div style={{
-          maxWidth: 1200,
-          margin: "0 auto",
-          padding: "28px 56px",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}>
+        <div
+          className="rsp-pad rsp-footer-bottom"
+          style={{ maxWidth: 1200, margin: "0 auto", padding: "28px 56px", display: "flex", justifyContent: "space-between", alignItems: "center" }}
+        >
           <p style={{ fontSize: 11, color: "#ccc" }}>
             © 2026 MEG Botanical Ltd. All Rights Reserved.
           </p>

@@ -3,7 +3,7 @@ import Image from "next/image";
 import { getProductBySlug, products } from "@/lib/products";
 import { notFound } from "next/navigation";
 import CtaButtons from "./CtaButtons";
-import Logo from "@/components/Logo";
+import NavHeader from "@/components/NavHeader";
 
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
@@ -14,56 +14,37 @@ export default async function ProductPage({ params }) {
   const product = getProductBySlug(slug);
   if (!product) notFound();
 
+  const rightContent = (
+    <Link href="/" style={{
+      display: "flex",
+      alignItems: "center",
+      gap: 8,
+      fontSize: 12,
+      letterSpacing: "0.08em",
+      color: "#888",
+      textDecoration: "none",
+    }}>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M19 12H5M12 19l-7-7 7-7" />
+      </svg>
+      목록으로
+    </Link>
+  );
+
   return (
     <div style={{ backgroundColor: "#f8f8f6", minHeight: "100vh", fontFamily: "var(--font-sans)" }}>
 
       {/* ── Header ── */}
-      <header style={{
-        position: "sticky",
-        top: 0,
-        zIndex: 100,
-        backgroundColor: "rgba(248,248,246,0.92)",
-        backdropFilter: "blur(12px)",
-        borderBottom: "1px solid #e8e8e4",
-      }}>
-        <div style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          padding: "18px 56px",
-          maxWidth: 1280,
-          margin: "0 auto",
-        }}>
-          <Logo />
-
-          <Link href="/" style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 8,
-            fontSize: 12,
-            letterSpacing: "0.08em",
-            color: "#888",
-            textDecoration: "none",
-          }}>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M19 12H5M12 19l-7-7 7-7" />
-            </svg>
-            목록으로
-          </Link>
-        </div>
-      </header>
+      <NavHeader navItems={[]} rightContent={rightContent} />
 
       {/* ── Product Detail ── */}
-      <main style={{ maxWidth: 1200, margin: "0 auto", padding: "64px 56px 120px" }}>
+      <main className="rsp-pad" style={{ maxWidth: 1200, margin: "0 auto", padding: "64px 56px 120px" }}>
 
         {/* Top: image + info */}
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: 80,
-          alignItems: "flex-start",
-          marginBottom: 100,
-        }}>
+        <div
+          className="rsp-2col"
+          style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "flex-start", marginBottom: 100 }}
+        >
 
           {/* Image */}
           <div style={{
@@ -141,11 +122,10 @@ export default async function ProductPage({ params }) {
         </div>
 
         {/* Specs + Features */}
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: 64,
-        }}>
+        <div
+          className="rsp-2col"
+          style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64 }}
+        >
 
           {/* Specs */}
           <div>
@@ -172,12 +152,7 @@ export default async function ProductPage({ params }) {
                     }}>
                       {spec.label}
                     </td>
-                    <td style={{
-                      padding: "14px 0",
-                      fontSize: 13,
-                      color: "#1a1a1a",
-                      fontWeight: 400,
-                    }}>
+                    <td style={{ padding: "14px 0", fontSize: 13, color: "#1a1a1a", fontWeight: 400 }}>
                       {spec.value}
                     </td>
                   </tr>
@@ -232,7 +207,7 @@ export default async function ProductPage({ params }) {
 
         </div>
 
-        {/* ── Detail Images (제품별 추가 이미지) ── */}
+        {/* ── Detail Images ── */}
         {(product.detailImages || (product.detailImage && [product.detailImage])) && (
           <div style={{ marginTop: 80, maxWidth: 860, margin: "80px auto 0" }}>
             {(product.detailImages || [product.detailImage]).map((src, i) => (
@@ -271,11 +246,10 @@ export default async function ProductPage({ params }) {
               </p>
             </div>
 
-            <div style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(2, 1fr)",
-              gap: 20,
-            }}>
+            <div
+              className="rsp-2col"
+              style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 20 }}
+            >
               {product.bacteria.map((b) => (
                 <div key={b.name} style={{
                   backgroundColor: "#ffffff",
@@ -297,16 +271,10 @@ export default async function ProductPage({ params }) {
                     alignItems: "center",
                     justifyContent: "center",
                   }}>
-                    <div style={{
-                      width: 16,
-                      height: 16,
-                      borderRadius: "50%",
-                      backgroundColor: b.color,
-                      opacity: 0.85,
-                    }} />
+                    <div style={{ width: 16, height: 16, borderRadius: "50%", backgroundColor: b.color, opacity: 0.85 }} />
                   </div>
                   <div>
-                    <div style={{ display: "flex", alignItems: "baseline", gap: 8, marginBottom: 6 }}>
+                    <div style={{ display: "flex", alignItems: "baseline", gap: 8, marginBottom: 6, flexWrap: "wrap" }}>
                       <span style={{ fontSize: 15, fontWeight: 600, color: "#1a1a1a", letterSpacing: "0.02em" }}>
                         {b.name}
                       </span>
@@ -328,14 +296,10 @@ export default async function ProductPage({ params }) {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: "#ffffff", borderTop: "1px solid #ebebeb" }}>
-        <div style={{
-          maxWidth: 1200,
-          margin: "0 auto",
-          padding: "28px 56px",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}>
+        <div
+          className="rsp-pad rsp-footer-bottom"
+          style={{ maxWidth: 1200, margin: "0 auto", padding: "28px 56px", display: "flex", justifyContent: "space-between", alignItems: "center" }}
+        >
           <p style={{ fontSize: 11, color: "#ccc", fontFamily: "var(--font-sans)" }}>
             © 2026 MEG Botanical Ltd. All Rights Reserved.
           </p>

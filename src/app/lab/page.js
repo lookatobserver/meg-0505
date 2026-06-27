@@ -15,7 +15,7 @@ export default function LabPage() {
         backdropFilter: "blur(12px)",
         borderBottom: "1px solid #e8e8e4",
       }}>
-        <div style={{
+        <div className="header-inner" style={{
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
@@ -42,11 +42,7 @@ export default function LabPage() {
       </header>
 
       {/* ── Hero ── */}
-      <section style={{
-        backgroundColor: "#111",
-        padding: "100px 56px",
-        textAlign: "center",
-      }}>
+      <section className="rsp-pad" style={{ backgroundColor: "#111", padding: "100px 56px", textAlign: "center" }}>
         <p style={{ fontSize: 10, letterSpacing: "0.26em", color: "rgba(255,255,255,0.35)", marginBottom: 20 }}>
           INGREDIENT ANALYSIS
         </p>
@@ -76,20 +72,13 @@ export default function LabPage() {
       </section>
 
       {/* ── Patent Section ── */}
-      <section style={{ maxWidth: 1100, margin: "0 auto", padding: "100px 56px" }}>
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: 80,
-          alignItems: "center",
-        }}>
+      <section className="rsp-pad" style={{ maxWidth: 1100, margin: "0 auto", padding: "100px 56px" }}>
+        <div
+          className="rsp-2col"
+          style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "center" }}
+        >
           {/* Image */}
-          <div style={{
-            position: "relative",
-            borderRadius: 16,
-            overflow: "hidden",
-            boxShadow: "0 24px 64px rgba(0,0,0,0.10)",
-          }}>
+          <div style={{ position: "relative", borderRadius: 16, overflow: "hidden", boxShadow: "0 24px 64px rgba(0,0,0,0.10)" }}>
             <Image
               src="/m01.jpg"
               alt="MEG 특허 증명"
@@ -127,7 +116,6 @@ export default function LabPage() {
               이 기술은 1년 이상의 연구 끝에 특허 출원되었습니다.
             </p>
 
-            {/* Key points */}
             <div style={{ display: "flex", flexDirection: "column", gap: 20, marginBottom: 48 }}>
               {[
                 { icon: "01", title: "근본적 원인 제거", desc: "악취 유발 분자를 미생물이 직접 분해하여 재발을 막습니다." },
@@ -165,7 +153,6 @@ export default function LabPage() {
               ))}
             </div>
 
-            {/* PDF Download */}
             <a
               href="/m02.pdf"
               target="_blank"
@@ -198,15 +185,11 @@ export default function LabPage() {
       </section>
 
       {/* ── Stats ── */}
-      <section style={{ backgroundColor: "#1b4332", padding: "80px 56px" }}>
-        <div style={{
-          maxWidth: 1000,
-          margin: "0 auto",
-          display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
-          gap: 40,
-          textAlign: "center",
-        }}>
+      <section className="rsp-pad" style={{ backgroundColor: "#1b4332", padding: "80px 56px" }}>
+        <div
+          className="rsp-4col"
+          style={{ maxWidth: 1000, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 40, textAlign: "center" }}
+        >
           {[
             { value: "99%", label: "악취 원인 제거율" },
             { value: "0", label: "화학 첨가물" },
@@ -224,11 +207,7 @@ export default function LabPage() {
               }}>
                 {stat.value}
               </div>
-              <div style={{
-                fontSize: 11,
-                letterSpacing: "0.14em",
-                color: "rgba(255,255,255,0.45)",
-              }}>
+              <div style={{ fontSize: 11, letterSpacing: "0.14em", color: "rgba(255,255,255,0.45)" }}>
                 {stat.label.toUpperCase()}
               </div>
             </div>
@@ -237,7 +216,7 @@ export default function LabPage() {
       </section>
 
       {/* ── Process ── */}
-      <section style={{ maxWidth: 900, margin: "0 auto", padding: "100px 56px" }}>
+      <section className="rsp-pad" style={{ maxWidth: 900, margin: "0 auto", padding: "100px 56px" }}>
         <div style={{ textAlign: "center", marginBottom: 64 }}>
           <p style={{ fontSize: 10, letterSpacing: "0.24em", color: "#bbb", marginBottom: 16 }}>
             HOW IT WORKS
@@ -267,12 +246,7 @@ export default function LabPage() {
               borderBottom: i < arr.length - 1 ? "1px solid #ebebeb" : "none",
             }}>
               <div style={{ minWidth: 80 }}>
-                <span style={{
-                  fontSize: 9,
-                  letterSpacing: "0.2em",
-                  color: "#2d6a4f",
-                  fontWeight: 600,
-                }}>
+                <span style={{ fontSize: 9, letterSpacing: "0.2em", color: "#2d6a4f", fontWeight: 600 }}>
                   {item.step}
                 </span>
               </div>
@@ -297,14 +271,10 @@ export default function LabPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: "#ffffff", borderTop: "1px solid #ebebeb" }}>
-        <div style={{
-          maxWidth: 1200,
-          margin: "0 auto",
-          padding: "28px 56px",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}>
+        <div
+          className="rsp-pad rsp-footer-bottom"
+          style={{ maxWidth: 1200, margin: "0 auto", padding: "28px 56px", display: "flex", justifyContent: "space-between", alignItems: "center" }}
+        >
           <p style={{ fontSize: 11, color: "#ccc" }}>
             © 2026 MEG Botanical Ltd. All Rights Reserved.
           </p>
