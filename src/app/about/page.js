@@ -34,7 +34,7 @@ const ceoMessage = [
   },
   {
     type: "body",
-    text: "1년 이상의 연구 끝에 이 기술을 MEG 제품에 담아냈습니다.\n미국 FDA에 등록된 성분과 특허청 정식 출원 기술\n— 이것은 자랑이 아닌,\n여러분의 공간에 들어오는 제품이 마땅히 갖춰야 할 최소한의 책임입니다.",
+    text: "1년 이상의 연구 끝에 이 기술을 MEG 제품에 담아냈습니다.\nKC 인증을 받은 성분과 특허청 정식 출원 기술\n— 이것은 자랑이 아닌,\n여러분의 공간에 들어오는 제품이 마땅히 갖춰야 할 최소한의 책임입니다.",
   },
   {
     type: "closing",
@@ -52,7 +52,7 @@ const ceoMessage = [
 
 const milestones = [
   { year: "2022", text: "MEG 창립 및 유용미생물(EM) 기반 탈취 기술 연구 착수" },
-  { year: "2023", text: "미국 FDA 핵심 성분 등록 완료 · KC 전기 안전 인증 획득" },
+  { year: "2023", text: "핵심 성분 KC 인증 완료 · KC 전기 안전 인증 획득" },
   { year: "2024", text: "미생물 배양 기술 특허 출원 (10-2024-0123764) · 제품 공식 출시" },
   { year: "2025", text: "일본·동남아 시장 진출 준비 · 제품 라인 확장" },
   { year: "2026", text: "프리미엄 보태니컬 케어 풀 라인업 공개" },
@@ -373,7 +373,7 @@ export default function AboutPage() {
             { value: "2022", label: "설립 연도" },
             { value: "99%", label: "악취 원인 제거율" },
             { value: "4종", label: "핵심 유용미생물" },
-            { value: "FDA", label: "미국 등록 성분" },
+            { value: "KC", label: "안전 인증 획득" },
           ].map((s) => (
             <div key={s.label}>
               <div style={{

@@ -17,15 +17,15 @@ const awards = [
   {
     year: "2023",
     category: "CERTIFICATION",
-    title: "미국 FDA\n성분 등록",
-    body: "맑음수의 핵심 원료인 유용미생물(EM) 4종이 미국 FDA 등록을 완료하며 안전성을 국제적으로 검증받았습니다.",
-    badge: "FDA REGISTERED",
+    title: "KC 제품 안전성\n인증 획득",
+    body: "맑음수의 핵심 원료인 유용미생물(EM) 4종이 국내 기준에 따른 KC 인증을 취득하며 안전성을 공식 검증받았습니다.",
+    badge: "KC CERTIFIED",
     accent: "#1b4332",
   },
   {
     year: "2023",
     category: "CERTIFICATION",
-    title: "KC 안전 인증\n획득",
+    title: "KC 전기 안전\n인증 획득",
     body: "자연수케어 탈취기가 국내 전기용품안전관리법에 따른 KC 인증을 취득, 전기 안전성을 공식 인정받았습니다.",
     badge: "KC CERTIFIED",
     accent: "#4a5568",
@@ -65,7 +65,7 @@ const values = [
 
 const timeline = [
   { year: "2022", event: "MEG 창립 · R&D 착수", detail: "미생물 기반 탈취 기술 연구 시작" },
-  { year: "2023", event: "FDA 등록 · KC 인증", detail: "핵심 원료 및 제품 안전성 국제 검증" },
+  { year: "2023", event: "KC 인증 획득", detail: "핵심 원료 및 제품 안전성 국내 검증" },
   { year: "2024", event: "특허 출원 · 정식 출시", detail: "특허 기술 탑재 제품 국내 런칭" },
   { year: "2025", event: "글로벌 확장 준비", detail: "일본·동남아 시장 진출 준비 중" },
   { year: "2026", event: "프리미엄 라인 론칭", detail: "보태니컬 케어 풀 라인업 공개" },
@@ -531,7 +531,7 @@ export default function BrandPage() {
                 { label: "연구 개발 기간", value: "1년 이상" },
                 { label: "핵심 미생물", value: "4종 유용미생물(EM)" },
                 { label: "화학 첨가물", value: "0 — 완전 무첨가" },
-                { label: "국제 인증", value: "미국 FDA 등록" },
+                { label: "국내 인증", value: "KC 안전 인증" },
               ].map((row, i, arr) => (
                 <div key={i} style={{
                   display: "flex",
@@ -706,7 +706,7 @@ export default function BrandPage() {
             margin: "0 auto 48px",
             fontWeight: 300,
           }}>
-            특허 기술과 FDA 등록 성분이 담긴 MEG의 제품들.
+            특허 기술과 KC 인증 성분이 담긴 MEG의 제품들.
             청정한 공기와 자연의 향을 집으로 들여보세요.
           </p>
 
