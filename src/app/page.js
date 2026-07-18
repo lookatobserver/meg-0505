@@ -9,6 +9,8 @@ import Logo from "@/components/Logo";
 import NavHeader from "@/components/NavHeader";
 import BannerPopup from "@/components/BannerPopup";
 import UusPopup from "@/components/UusPopup";
+import SensuPopup from "@/components/SensuPopup";
+import YoonPopup from "@/components/YoonPopup";
 
 const gnbItems = [
   { label: "브랜드 스토리", href: "/brand", accent: true },
@@ -44,6 +46,8 @@ export default function Home() {
     <>
       <BannerPopup />
       <UusPopup />
+      <SensuPopup />
+      <YoonPopup />
       <div style={{ backgroundColor: "#f8f8f6", minHeight: "100vh", fontFamily: "var(--font-sans)" }}>
 
         {/* ── Header ── */}
