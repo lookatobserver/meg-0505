@@ -1,10 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
-import Logo from "@/components/Logo";
+import NavHeader from "@/components/NavHeader";
 
 export const metadata = {
   title: "ABOUT — MEG Microbial Eco Guardians",
-  description: "MEG 발효연구원장 안성순 인삿말 및 브랜드 소개",
+  description: "MEG MEG CEO 안성순 인삿말 및 브랜드 소개",
 };
 
 const ceoMessage = [
@@ -34,7 +34,7 @@ const ceoMessage = [
   },
   {
     type: "body",
-    text: "1년 이상의 연구 끝에 이 기술을 MEG 제품에 담아냈습니다.\n미국 FDA에 등록된 성분과 특허청 정식 출원 기술\n— 이것은 자랑이 아닌,\n여러분의 공간에 들어오는 제품이 마땅히 갖춰야 할 최소한의 책임입니다.",
+    text: "1년 이상의 연구 끝에 이 기술을 MEG 제품에 담아냈습니다.\nKC 인증을 받은 성분과 특허청 정식 출원 기술\n— 이것은 자랑이 아닌,\n여러분의 공간에 들어오는 제품이 마땅히 갖춰야 할 최소한의 책임입니다.",
   },
   {
     type: "closing",
@@ -52,83 +52,50 @@ const ceoMessage = [
 
 const milestones = [
   { year: "2022", text: "MEG 창립 및 유용미생물(EM) 기반 탈취 기술 연구 착수" },
-  { year: "2023", text: "미국 FDA 핵심 성분 등록 완료 · KC 전기 안전 인증 획득" },
+  { year: "2023", text: "핵심 성분 KC 인증 완료 · KC 전기 안전 인증 획득" },
   { year: "2024", text: "미생물 배양 기술 특허 출원 (10-2024-0123764) · 제품 공식 출시" },
   { year: "2025", text: "일본·동남아 시장 진출 준비 · 제품 라인 확장" },
   { year: "2026", text: "프리미엄 보태니컬 케어 풀 라인업 공개" },
 ];
+
+const navItems = [
+  { label: "브랜드 스토리", href: "/brand" },
+  { label: "ABOUT", href: "/about", active: true },
+  { label: "성분 분석", href: "/lab" },
+];
+
+const rightContent = (
+  <Link href="/" style={{
+    display: "flex",
+    alignItems: "center",
+    gap: 8,
+    fontSize: 12,
+    letterSpacing: "0.08em",
+    color: "#888",
+    textDecoration: "none",
+  }}>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <path d="M19 12H5M12 19l-7-7 7-7" />
+    </svg>
+    메인으로
+  </Link>
+);
 
 export default function AboutPage() {
   return (
     <div style={{ backgroundColor: "#f8f8f6", minHeight: "100vh" }}>
 
       {/* ── Header ── */}
-      <header style={{
-        position: "sticky",
-        top: 0,
-        zIndex: 100,
-        backgroundColor: "rgba(248,248,246,0.92)",
-        backdropFilter: "blur(12px)",
-        borderBottom: "1px solid #e8e8e4",
-      }}>
-        <div style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          padding: "18px 56px",
-          maxWidth: 1280,
-          margin: "0 auto",
-        }}>
-          <Logo />
-          <nav style={{ display: "flex", gap: 36, alignItems: "center" }}>
-            {[
-              { label: "브랜드 스토리", href: "/brand" },
-              { label: "ABOUT", href: "/about", active: true },
-              { label: "성분 분석", href: "/lab" },
-            ].map((item) => (
-              <Link key={item.href} href={item.href} style={{
-                fontSize: 12,
-                letterSpacing: "0.08em",
-                color: item.active ? "#1a1a1a" : "#888",
-                textDecoration: "none",
-                fontWeight: item.active ? 500 : 400,
-                borderBottom: item.active ? "1px solid #1a1a1a" : "none",
-                paddingBottom: item.active ? 2 : 0,
-              }}>
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-          <Link href="/" style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 8,
-            fontSize: 12,
-            letterSpacing: "0.08em",
-            color: "#888",
-            textDecoration: "none",
-          }}>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M19 12H5M12 19l-7-7 7-7" />
-            </svg>
-            메인으로
-          </Link>
-        </div>
-      </header>
+      <NavHeader navItems={navItems} rightContent={rightContent} />
 
       {/* ── Hero ── */}
-      <section style={{
+      <section className="rsp-pad" style={{
         backgroundColor: "#111",
         padding: "110px 56px 100px",
         position: "relative",
         overflow: "hidden",
       }}>
-        {/* Faint background texture */}
-        <div style={{
-          position: "absolute",
-          inset: 0,
-          opacity: 0.08,
-        }}>
+        <div style={{ position: "absolute", inset: 0, opacity: 0.08 }}>
           <Image src="/product1.png" alt="" fill style={{ objectFit: "cover", objectPosition: "center" }} />
         </div>
         <div style={{ position: "relative", zIndex: 1, maxWidth: 900, margin: "0 auto", textAlign: "center" }}>
@@ -165,17 +132,14 @@ export default function AboutPage() {
       </section>
 
       {/* ── CEO Message ── */}
-      <section style={{ maxWidth: 1100, margin: "0 auto", padding: "100px 56px" }}>
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "340px 1fr",
-          gap: 80,
-          alignItems: "flex-start",
-        }}>
+      <section className="rsp-pad" style={{ maxWidth: 1100, margin: "0 auto", padding: "100px 56px" }}>
+        <div
+          className="rsp-2col"
+          style={{ display: "grid", gridTemplateColumns: "340px 1fr", gap: 80, alignItems: "flex-start" }}
+        >
 
           {/* Left: CEO portrait */}
-          <div style={{ position: "sticky", top: 120 }}>
-            {/* CEO illustration */}
+          <div className="rsp-unsticky" style={{ position: "sticky", top: 120 }}>
             <div style={{
               borderRadius: 8,
               marginBottom: 20,
@@ -186,13 +150,12 @@ export default function AboutPage() {
             }}>
               <Image
                 src="/an.png"
-                alt="안성순 발효연구원장"
+                alt="안성순 MEG CEO"
                 fill
                 style={{ objectFit: "cover", objectPosition: "center center" }}
               />
             </div>
 
-            {/* Name card */}
             <div style={{
               padding: "20px 24px",
               borderLeft: "3px solid #2d6a4f",
@@ -210,17 +173,10 @@ export default function AboutPage() {
                 안성순
               </div>
               <div style={{ fontSize: 10, letterSpacing: "0.14em", color: "#aaa", marginBottom: 12 }}>
-                발효연구원장 · 한서대학교산학연구원
+                MEG CEO · 한서대학교산학연구원
               </div>
-              <div style={{
-                display: "flex",
-                gap: 8,
-                alignItems: "center",
-              }}>
-                <div style={{
-                  width: 6, height: 6, borderRadius: "50%",
-                  backgroundColor: "#2d6a4f",
-                }} />
+              <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+                <div style={{ width: 6, height: 6, borderRadius: "50%", backgroundColor: "#2d6a4f" }} />
                 <span style={{ fontSize: 11, color: "#bbb", letterSpacing: "0.1em" }}>
                   MEG Microbial Eco Guardians
                 </span>
@@ -230,12 +186,7 @@ export default function AboutPage() {
 
           {/* Right: Message text */}
           <div>
-            <p style={{
-              fontSize: 10,
-              letterSpacing: "0.26em",
-              color: "#bbb",
-              marginBottom: 36,
-            }}>
+            <p style={{ fontSize: 10, letterSpacing: "0.26em", color: "#bbb", marginBottom: 36 }}>
               GREETING
             </p>
 
@@ -285,7 +236,6 @@ export default function AboutPage() {
                     marginBottom: 0,
                   }}>{para.text}</p>
                 );
-                // body (default)
                 return (
                   <p key={i} style={{
                     fontFamily: hw,
@@ -299,7 +249,6 @@ export default function AboutPage() {
               })}
             </div>
 
-            {/* Signature */}
             <div style={{
               marginTop: 56,
               paddingTop: 40,
@@ -332,7 +281,7 @@ export default function AboutPage() {
                   color: "#1a1a1a",
                   marginBottom: 2,
                 }}>
-                  안성순 발효연구원장
+                  안성순 MEG CEO
                 </div>
                 <div style={{ fontSize: 11, color: "#bbb", letterSpacing: "0.1em" }}>
                   MEG · 한서대학교산학연구원
@@ -344,7 +293,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── Divider Quote ── */}
-      <section style={{
+      <section className="rsp-pad" style={{
         borderTop: "1px solid #e8e8e4",
         borderBottom: "1px solid #e8e8e4",
         padding: "72px 56px",
@@ -370,7 +319,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── Company Milestones ── */}
-      <section style={{ maxWidth: 860, margin: "0 auto", padding: "100px 56px" }}>
+      <section className="rsp-pad" style={{ maxWidth: 860, margin: "0 auto", padding: "100px 56px" }}>
         <div style={{ marginBottom: 64 }}>
           <p style={{ fontSize: 10, letterSpacing: "0.26em", color: "#bbb", marginBottom: 16 }}>
             COMPANY HISTORY
@@ -406,13 +355,7 @@ export default function AboutPage() {
               }}>
                 {m.year}
               </div>
-              <div style={{
-                fontSize: 14,
-                lineHeight: 1.8,
-                color: "#555",
-                fontWeight: 300,
-                paddingTop: 4,
-              }}>
+              <div style={{ fontSize: 14, lineHeight: 1.8, color: "#555", fontWeight: 300, paddingTop: 4 }}>
                 {m.text}
               </div>
             </div>
@@ -421,20 +364,16 @@ export default function AboutPage() {
       </section>
 
       {/* ── Values Stats ── */}
-      <section style={{ backgroundColor: "#1b4332", padding: "80px 56px" }}>
-        <div style={{
-          maxWidth: 1000,
-          margin: "0 auto",
-          display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
-          gap: 40,
-          textAlign: "center",
-        }}>
+      <section className="rsp-pad" style={{ backgroundColor: "#1b4332", padding: "80px 56px" }}>
+        <div
+          className="rsp-4col"
+          style={{ maxWidth: 1000, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 40, textAlign: "center" }}
+        >
           {[
             { value: "2022", label: "설립 연도" },
             { value: "99%", label: "악취 원인 제거율" },
             { value: "4종", label: "핵심 유용미생물" },
-            { value: "FDA", label: "미국 등록 성분" },
+            { value: "KC", label: "안전 인증 획득" },
           ].map((s) => (
             <div key={s.label}>
               <div style={{
@@ -447,11 +386,7 @@ export default function AboutPage() {
               }}>
                 {s.value}
               </div>
-              <div style={{
-                fontSize: 10,
-                letterSpacing: "0.16em",
-                color: "rgba(255,255,255,0.4)",
-              }}>
+              <div style={{ fontSize: 10, letterSpacing: "0.16em", color: "rgba(255,255,255,0.4)" }}>
                 {s.label.toUpperCase()}
               </div>
             </div>
@@ -460,11 +395,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section style={{
-        padding: "90px 56px",
-        textAlign: "center",
-        backgroundColor: "#f8f8f6",
-      }}>
+      <section className="rsp-pad" style={{ padding: "90px 56px", textAlign: "center", backgroundColor: "#f8f8f6" }}>
         <p style={{ fontSize: 10, letterSpacing: "0.26em", color: "#bbb", marginBottom: 20 }}>
           EXPLORE MEG
         </p>
@@ -478,7 +409,7 @@ export default function AboutPage() {
         }}>
           MEG의 기술과 철학을<br />더 알아보세요.
         </h2>
-        <div style={{ display: "flex", gap: 14, justifyContent: "center", marginTop: 36 }}>
+        <div style={{ display: "flex", gap: 14, justifyContent: "center", marginTop: 36, flexWrap: "wrap" }}>
           <Link href="/brand" style={{
             display: "inline-block",
             padding: "13px 36px",
@@ -511,14 +442,10 @@ export default function AboutPage() {
 
       {/* ── Footer ── */}
       <footer style={{ backgroundColor: "#ffffff", borderTop: "1px solid #ebebeb" }}>
-        <div style={{
-          maxWidth: 1200,
-          margin: "0 auto",
-          padding: "28px 56px",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}>
+        <div
+          className="rsp-pad rsp-footer-bottom"
+          style={{ maxWidth: 1200, margin: "0 auto", padding: "28px 56px", display: "flex", justifyContent: "space-between", alignItems: "center" }}
+        >
           <p style={{ fontSize: 11, color: "#ccc" }}>
             © 2026 MEG Botanical Ltd. All Rights Reserved.
           </p>
