@@ -2,19 +2,18 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 
-export default function BannerPopup() {
+export default function UusPopup() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const expiry = localStorage.getItem("bannerHideUntil");
+    const expiry = localStorage.getItem("uusHideUntil");
     if (expiry && Date.now() < Number(expiry)) return;
     setVisible(true);
   }, []);
 
   function closeForWeek() {
-    localStorage.setItem("bannerHideUntil", Date.now() + 7 * 24 * 60 * 60 * 1000);
+    localStorage.setItem("uusHideUntil", Date.now() + 7 * 24 * 60 * 60 * 1000);
     setVisible(false);
   }
 
@@ -28,7 +27,7 @@ export default function BannerPopup() {
     <div style={{
       position: "fixed",
       top: 0, left: 0, right: 0, bottom: 0,
-      zIndex: 9999,
+      zIndex: 9998,
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
@@ -45,13 +44,13 @@ export default function BannerPopup() {
         flexDirection: "column",
       }}>
 
-        {/* 이미지 — 버튼 높이(52px) 뺀 나머지 최대 높이로 표시 */}
-        <Link href="/product/deodorizer" onClick={close} style={{ display: "block", overflow: "hidden" }}>
+        {/* 이미지 + 상단 텍스트 오버레이 */}
+        <div style={{ position: "relative", overflow: "hidden", flexShrink: 1 }}>
           <Image
-            src="/banner.png"
-            alt="친환경 저소음 탈취기"
-            width={260}
-            height={779}
+            src="/uus.png"
+            alt="냄새엔 맑음수짱 킁킁탈짱"
+            width={600}
+            height={800}
             style={{
               width: "100%",
               height: "auto",
@@ -63,9 +62,29 @@ export default function BannerPopup() {
             priority
             unoptimized
           />
-        </Link>
+          {/* 상단 텍스트 */}
+          <div style={{
+            position: "absolute",
+            top: 0, left: 0, right: 0,
+            padding: "18px 16px 32px",
+            background: "linear-gradient(to bottom, rgba(0,0,0,0.65) 0%, transparent 100%)",
+            textAlign: "center",
+          }}>
+            <p style={{
+              margin: 0,
+              fontSize: 20,
+              fontWeight: 800,
+              color: "#ffffff",
+              letterSpacing: "0.02em",
+              textShadow: "0 2px 8px rgba(0,0,0,0.5)",
+              lineHeight: 1.4,
+            }}>
+              냄새엔 맑음수짱! 킁킁탈짱!!!
+            </p>
+          </div>
+        </div>
 
-        {/* 버튼 — 항상 하단에 고정 */}
+        {/* 하단 버튼 */}
         <div style={{ display: "flex", flexShrink: 0 }}>
           <button
             onClick={closeForWeek}
@@ -80,7 +99,7 @@ export default function BannerPopup() {
               cursor: "pointer",
             }}
           >
-            일주일 동안 보지 않기
+            일주일 보지 않기
           </button>
           <button
             onClick={close}
