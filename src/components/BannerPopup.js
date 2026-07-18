@@ -34,9 +34,7 @@ export default function BannerPopup() {
       justifyContent: "center",
       backgroundColor: "rgba(0,0,0,0.6)",
     }}>
-      <div style={{
-        width: "min(480px, 94vw)",
-        maxHeight: "94vh",
+      <div className="banner-popup-box" style={{
         borderRadius: 8,
         overflow: "hidden",
         boxShadow: "0 20px 60px rgba(0,0,0,0.4)",
@@ -99,6 +97,18 @@ export default function BannerPopup() {
           </button>
         </div>
       </div>
+      <style jsx>{`
+        .banner-popup-box {
+          width: min(480px, 94vw);
+          max-height: 94vh;
+        }
+        @media (min-width: 768px) {
+          .banner-popup-box {
+            width: min(960px, 94vw);
+            max-height: 94vh;
+          }
+        }
+      `}</style>
     </div>
   );
 }

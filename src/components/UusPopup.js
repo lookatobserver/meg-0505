@@ -33,9 +33,7 @@ export default function UusPopup() {
       justifyContent: "center",
       backgroundColor: "rgba(0,0,0,0.6)",
     }}>
-      <div style={{
-        width: "min(480px, 94vw)",
-        maxHeight: "94vh",
+      <div className="uus-popup-box" style={{
         borderRadius: 8,
         overflow: "hidden",
         boxShadow: "0 20px 60px rgba(0,0,0,0.4)",
@@ -118,6 +116,18 @@ export default function UusPopup() {
           </button>
         </div>
       </div>
+      <style jsx>{`
+        .uus-popup-box {
+          width: min(480px, 94vw);
+          max-height: 94vh;
+        }
+        @media (min-width: 768px) {
+          .uus-popup-box {
+            width: min(960px, 94vw);
+            max-height: 94vh;
+          }
+        }
+      `}</style>
     </div>
   );
 }
